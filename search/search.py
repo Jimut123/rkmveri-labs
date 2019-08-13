@@ -94,19 +94,24 @@ def depthFirstSearch(problem):
     #print("Start's successors:", problem.getSuccessors(problem.getStartState()))
 
     distance_list = []
+
     my_stack = util.Stack()
     current_state = problem.getStartState()
-
+    #print("Started at => ",current_state)
+    visited = []
+    visited.append(current_state)
     while problem.isGoalState(current_state) == False:
       
-      print("State obtained => ",distance_list)
+      #print("State obtained => ",distance_list)
       get_sucessors = problem.getSuccessors(current_state)
       get_sucessors.reverse()
-      print("Successors => ",get_sucessors)
-      my_stack.showStack()
+      #print("Successors => ",get_sucessors)
+      #my_stack.showStack()
       for items_coord in get_sucessors:
-        if current_state != items_coord[0]:
+        if items_coord[0] not in visited:
+          visited.append(items_coord[0])
           my_stack.push(items_coord)
+
       
       if my_stack.isEmpty():
         break
@@ -117,14 +122,29 @@ def depthFirstSearch(problem):
         #   print("********* it's present")
         # my_stack.showStack()
         current_state = current_state_tuple[0]
-        print("cur coord => ",current_state)
+        #print("cur coord => ",current_state)
         distance_list.append(current_state_tuple[1][0].lower())
-      util.pause()
+      #util.pause()
     #util.pause()
     #util.raiseNotDefined()
-    print("State obtained => ",distance_list)
-    
-    return distance_list
+    #print("State obtained => ",distance_list)
+    #print("Distance list => ",distance_list)
+    d_list = []
+    from game import Directions
+    s = Directions.SOUTH
+    w = Directions.WEST
+    n = Directions.NORTH
+    e = Directions.EAST
+    for item in distance_list:
+        if item == 's':
+          d_list.append(s)
+        if item == 'e':
+          d_list.append(e)
+        if item == 'n':
+          d_list.append(n)
+        if item == 'w':
+          d_list.append(w)
+    return d_list
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
