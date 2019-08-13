@@ -92,7 +92,7 @@ def depthFirstSearch(problem):
     #print("Start:", problem.getStartState())
     #print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
     #print("Start's successors:", problem.getSuccessors(problem.getStartState()))
-
+    
     distance_list = []
     my_stack = util.Stack()
     current_state = problem.getStartState()
