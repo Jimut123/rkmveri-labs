@@ -93,8 +93,9 @@ def depthFirstSearch(problem):
     "*** YOUR CODE HERE ***"
     visited = []
     current_state = problem.getStartState()
-    x = current_state
-    y = (1,1)
+    
+    
+    
     array = []
     def dfs(current_state, array):
       visited.append(current_state)
@@ -103,7 +104,7 @@ def depthFirstSearch(problem):
       for items_coord in get_sucessors:
         if items_coord[0] not in visited:
           if problem.isGoalState(items_coord[0]):
-            y = items_coord[0]
+            
             
             array.append(items_coord[1][0])
             global RET_PATH
