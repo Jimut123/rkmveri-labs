@@ -93,9 +93,6 @@ def depthFirstSearch(problem):
     "*** YOUR CODE HERE ***"
     visited = []
     current_state = problem.getStartState()
-    
-    
-    
     array = []
     def dfs(current_state, array):
       visited.append(current_state)
@@ -142,6 +139,31 @@ def depthFirstSearch(problem):
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
     "*** YOUR CODE HERE ***"
+    from util import Queue
+    visited = []
+    current_state = problem.getStartState()
+    array = []
+
+    def bfs(current_state, que, array):
+      if current_state not in visited:
+        visited.append(current_state)
+        
+      get_sucessors = problem.getSuccessors(current_state)
+
+      for items_coord in get_sucessors:
+        if items_coord[0] not in visited:
+          que.push(items_coord)
+          visited.append(items_coord[0])
+          if problem.isGoalState(items_coord[0]):
+            
+            
+            array.append(items_coord[1][0])
+            global RET_PATH
+            RET_PATH = array.copy()
+            print("PATH =>>>>>>>>>>>>>>>>>>>>>>>>>>",array)
+            return array
+    que = Queue()
+    bfs(current_state,que,array)
     util.raiseNotDefined()
 
 def uniformCostSearch(problem):

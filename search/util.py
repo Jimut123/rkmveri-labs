@@ -176,6 +176,12 @@ class Queue:
     def isEmpty(self):
         "Returns true if the queue is empty"
         return len(self.list) == 0
+    
+    def showQueue(self):
+        print("Queue => ")
+        for item in self.list:
+            print(item, end=",")
+        print()
 
 class PriorityQueue:
     """
