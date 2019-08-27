@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}{{\textbf {Introduction}}}}{2}{section.1}% 
+\contentsline {section}{\numberline {2}{\textbf {Depth First Search}}}{2}{section.2}% 
+\contentsline {section}{\numberline {3}{{\textbf {Breadth First Search}}}}{4}{section.3}% 
+\contentsline {section}{\numberline {4}{\textbf {Uniform Cost Search}}}{6}{section.4}% 
+\contentsline {section}{\numberline {5}{{\textbf {A* Search}}}}{7}{section.5}% 
+\contentsline {section}{\numberline {6}{\textbf {Results and Discussion}}}{9}{section.6}% 
