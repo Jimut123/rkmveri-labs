@@ -15,5 +15,8 @@ Chicago
 Pal, Jimut B. 2019. “DESIGNING OF SEARCH AGENTS USING PACMAN.” OSF Preprints. August 29. doi:10.31219/osf.io/rnsy6. 
 ```
 
-***
+## 2. Reinforcement
 
+* ongoing
+
+***
