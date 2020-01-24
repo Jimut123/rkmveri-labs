@@ -1,6 +1,9 @@
 import numpy as np
 #### DO NOT IMPORT cv2 
 
+def rgb2gray(rgb):
+    return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
+
 def my_imfilter(image, filter):
   """
   Apply a filter to an image. Return the filtered image.
@@ -27,11 +30,58 @@ def my_imfilter(image, filter):
 
   ############################
   ### TODO: YOUR CODE HERE ###
-  
 
+  # grab the spatial dimensions of the image, along with
+  # the spatial dimensions of the kernel
+
+  #print(image.shape)
+  #print(filter.shape)
+
+  (iH, iW) = image.shape[:2]
+  (kH, kW) = filter.shape[:2]
+  #print(iH," ",iW)
+  filtered_image = np.zeros((iH, iW), dtype="float32")
+
+  # allocate memory for the output image, taking care to
+  # "pad" the borders of the input image so the spatial
+  # size (i.e., width and height) are not reduced
+  pad = (kW - 1) // 2
+  #print("pad = ",pad)
+  
+  image1 = rgb2gray(image)
+  #print(image1.shape)
+  image2 = np.pad(image1, pad_width=pad, mode='constant', constant_values=0)
+  #print(x[0:10,0:10])
+  # for y in np.arange(pad, iH + pad):
+  #   print(image1[y-pad,0])
+  #   #  print("yikes")
+  
+  # loop over the input image, "sliding" the kernel across
+  # each (x, y)-coordinate from left-to-right and top to
+  # bottom
+  
+  for y in np.arange(pad, iH + pad):
+    for x in np.arange(pad, iW + pad):
+      # extract the ROI of the image by extracting the
+      # *center* region of the current (x, y)-coordinates
+      # dimensions
+      roi = image2[y - pad:y + pad+1, x - pad:x + pad+1]
+
+      # perform the actual convolution by taking the
+      # element-wise multiplicate between the ROI and
+      # the kernel, then summing the matrix
+      #print("roi = ",roi," filter = ",filter)
+      
+      k = (roi * filter).sum()
+      # k = np.dot(roi*filter).sum()
+      # store the convolved value in the output (x,y)-
+      # coordinate of the output image
+     
+      filtered_image[y - pad, x - pad] = k
+  
   ### END OF STUDENT CODE ####
   ############################
-
+  
   return filtered_image
 
 def create_hybrid_image(image1, image2, filter):
