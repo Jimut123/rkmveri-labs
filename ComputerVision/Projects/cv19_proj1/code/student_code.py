@@ -31,53 +31,23 @@ def my_imfilter(image, filter):
   ############################
   ### TODO: YOUR CODE HERE ###
 
-  # grab the spatial dimensions of the image, along with
-  # the spatial dimensions of the kernel
-
-  #print(image.shape)
-  #print(filter.shape)
-
-  (iH, iW) = image.shape[:2]
-  (kH, kW) = filter.shape[:2]
-  #print(iH," ",iW)
-  filtered_image = np.zeros((iH, iW), dtype="float32")
-
-  # allocate memory for the output image, taking care to
-  # "pad" the borders of the input image so the spatial
-  # size (i.e., width and height) are not reduced
-  pad = (kW - 1) // 2
-  #print("pad = ",pad)
-  
-  image1 = rgb2gray(image)
-  #print(image1.shape)
-  image2 = np.pad(image1, pad_width=pad, mode='constant', constant_values=0)
-  #print(x[0:10,0:10])
-  # for y in np.arange(pad, iH + pad):
-  #   print(image1[y-pad,0])
-  #   #  print("yikes")
-  
-  # loop over the input image, "sliding" the kernel across
-  # each (x, y)-coordinate from left-to-right and top to
-  # bottom
-  
-  for y in np.arange(pad, iH + pad):
-    for x in np.arange(pad, iW + pad):
-      # extract the ROI of the image by extracting the
-      # *center* region of the current (x, y)-coordinates
-      # dimensions
-      roi = image2[y - pad:y + pad+1, x - pad:x + pad+1]
-
-      # perform the actual convolution by taking the
-      # element-wise multiplicate between the ROI and
-      # the kernel, then summing the matrix
-      #print("roi = ",roi," filter = ",filter)
-      
-      k = (roi * filter).sum()
-      # k = np.dot(roi*filter).sum()
-      # store the convolved value in the output (x,y)-
-      # coordinate of the output image
-     
-      filtered_image[y - pad, x - pad] = k
+  filtered_image = image.copy()                          # copying the filtered image
+  image_dimension=image.shape                            # capturing the shape of the image
+  filter_dimension=filter.shape                          # capturing the shape of the filter
+  height=image_dimension[0]                              # x
+  width=image_dimension[1]                               # y
+  flt_dim1=filter_dimension[0]                           # x   works for non-square filters
+  flt_dim2=filter_dimension[1]                           # y   works for non-square filters
+  pad_height=int((flt_dim1-1)/2)                         # estimating the size of the padding of height with the help of filter
+  pad_width=int((flt_dim2-1)/2)                          # estimating the size of the padding of width with the help of filter
+  pad_mat=np.zeros((height+2*pad_height,width+2*pad_width,3))
+  # this part of code creates the image inside the padded version of the numpy zero matrix
+  pad_mat[pad_height: height + pad_height, pad_width: width + pad_width] = image
+  for d in range(len(image[0][0])):                       # going through all the channels of the images in the case if it is not in grayscale
+      for i in range(len(image)):                         # x value iteration or height
+          for j in range(len(image[0])):                  # y value or width
+              # now using the padded 3D numpy array or 1D array as the case may be, we apply gaussian blur.
+              filtered_image[i][j][d] = sum(sum(np.multiply(filter,pad_mat[i:i+flt_dim1,j:j+flt_dim2,d])))
   
   ### END OF STUDENT CODE ####
   ############################
@@ -114,7 +84,8 @@ def create_hybrid_image(image1, image2, filter):
 
   ############################
   ### TODO: YOUR CODE HERE ###
-  
+  # low_fc_im1 = 
+  # high_fc_im2 = 
 
   ### END OF STUDENT CODE ####
   ############################
