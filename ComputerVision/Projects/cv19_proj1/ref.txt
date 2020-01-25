@@ -1,8 +1,8 @@
 
-https://www.pyimagesearch.com/2016/07/25/convolutions-with-opencv-and-python/
 
 https://www.w3resource.com/python-exercises/numpy/python-numpy-exercise-9.php
 
 http://olivalab.mit.edu/hybrid_gallery/gallery.html
 
+http://mstrzel.eletel.p.lodz.pl/mstrzel/pattern_rec/filtering.pdf
 
