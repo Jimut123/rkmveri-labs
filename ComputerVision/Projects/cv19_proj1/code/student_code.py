@@ -52,7 +52,7 @@ def my_imfilter(image, filter):
   
   return filtered_image
 
-def create_hybrid_image(image1, image2, filter):
+def create_hybrid_image(image1, image2, filter,first_weight):
   """
   Takes two images and creates a hybrid image. Returns the low
   frequency content of image1, the high frequency content of
@@ -89,7 +89,7 @@ def create_hybrid_image(image1, image2, filter):
   h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = filter[int(filter.shape[0]/2),int(filter.shape[0]/2)]
   h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = h[int(filter.shape[0]/2),int(filter.shape[0]/2)] -h.sum()
   high_frequencies = my_imfilter(image2,h)
-  hybrid_image = 0.5*low_frequencies + 0.5*high_frequencies
+  hybrid_image = first_weight*low_frequencies + (1-first_weight)*high_frequencies
   ### END OF STUDENT CODE ####
   ############################
 
