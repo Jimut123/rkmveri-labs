@@ -1,9 +1,6 @@
 import numpy as np
 #### DO NOT IMPORT cv2 
 
-def rgb2gray(rgb):
-    return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
-
 def my_imfilter(image, filter):
   """
   Apply a filter to an image. Return the filtered image.
@@ -31,6 +28,7 @@ def my_imfilter(image, filter):
   ############################
   ### TODO: YOUR CODE HERE ###
 
+  # works for any kind of image, whether grayscale or 3-channel RGB or any channel image
   filtered_image = image.copy()                          # copying the filtered image
   image_dimension=image.shape                            # capturing the shape of the image
   filter_dimension=filter.shape                          # capturing the shape of the filter
@@ -84,9 +82,14 @@ def create_hybrid_image(image1, image2, filter):
 
   ############################
   ### TODO: YOUR CODE HERE ###
-  # low_fc_im1 = 
-  # high_fc_im2 = 
-
+  # low pass filter is the normal gaussian distribution
+  low_frequencies = my_imfilter(image1,filter)
+  # high pass filter is the negative of the gaussian distribution
+  h=-filter
+  h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = filter[int(filter.shape[0]/2),int(filter.shape[0]/2)]
+  h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = h[int(filter.shape[0]/2),int(filter.shape[0]/2)] -h.sum()
+  high_frequencies = my_imfilter(image2,h)
+  hybrid_image = 0.5*low_frequencies + 0.5*high_frequencies
   ### END OF STUDENT CODE ####
   ############################
 
