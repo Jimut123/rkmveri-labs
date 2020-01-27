@@ -36,9 +36,9 @@ given_data=['bicycle.bmp',  'cat.bmp',  'einstein.bmp',  'marilyn.bmp','submarin
 
 cutoff_freq = [2,4,5,7,10,15,20,25,30]
 
-path_ = "../data/"
+path_ = "../data/mydata/"
 full_data = {}
-for pictures in tqdm(given_data):
+for pictures in tqdm(pictures_mydata):
     full_path = path_+pictures
     picture_data = {}
     image1 = load_image(full_path)

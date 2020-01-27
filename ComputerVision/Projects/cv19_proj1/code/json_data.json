@@ -1,3 +1,42 @@
 {
-    
+    "cowboyhat.jpg": {
+        "height": 368,
+        "width": 569,
+        "2": {
+            "elapsed_lowpass": 9.797143936157227,
+            "elapsed_highpass": 10.424846410751343
+        },
+        "4": {
+            "elapsed_lowpass": 14.390746593475342,
+            "elapsed_highpass": 14.376689910888672
+        },
+        "5": {
+            "elapsed_lowpass": 16.84208393096924,
+            "elapsed_highpass": 16.902072429656982
+        },
+        "7": {
+            "elapsed_lowpass": 21.65727686882019,
+            "elapsed_highpass": 21.761889457702637
+        },
+        "10": {
+            "elapsed_lowpass": 29.52527165412903,
+            "elapsed_highpass": 29.705114603042603
+        },
+        "15": {
+            "elapsed_lowpass": 43.59519577026367,
+            "elapsed_highpass": 43.562331199645996
+        },
+        "20": {
+            "elapsed_lowpass": 58.69470691680908,
+            "elapsed_highpass": 58.453099966049194
+        },
+        "25": {
+            "elapsed_lowpass": 73.84947228431702,
+            "elapsed_highpass": 73.9972677230835
+        },
+        "30": {
+            "elapsed_lowpass": 90.11183619499207,
+            "elapsed_highpass": 96.94441246986389
+        }
+    }
 }
