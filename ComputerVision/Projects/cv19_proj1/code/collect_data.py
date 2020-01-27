@@ -1,23 +1,22 @@
 """
-{
-    "1":{
-        "height":height,
-        "width":width,
-        "kernel_size":kernel_size,
-        "time":time,
-    }
-    
-}
+Auto-script for collecting data for higher dimensional visualization.
+
+This script takes all the images and computes the time taken by lowpass and highpass filter for 
+every images and stores it in a json file.
+
+Author: Jimut Bahan Pal
+Dated: 27th January, 2019
 """
 
-import sys
+
 import os
+import cv2
+import sys
 import json
 import time
-import cv2
-from tqdm import tqdm
-import numpy as np
 import matplotlib
+import numpy as np
+from tqdm import tqdm
 import matplotlib.pyplot as plt
 from utils import vis_hybrid_image, load_image, save_image
 from student_code import my_imfilter, create_hybrid_image
@@ -37,15 +36,13 @@ given_data=['bicycle.bmp',  'cat.bmp',  'einstein.bmp',  'marilyn.bmp','submarin
 
 cutoff_freq = [2,4,5,7,10,15,20,25,30]
 
-path_ = "../data/mydata/"
+path_ = "../data/"
 full_data = {}
-for pictures in tqdm(pictures_mydata):
+for pictures in tqdm(given_data):
     full_path = path_+pictures
     picture_data = {}
-
     image1 = load_image(full_path)
     print(pictures," :: loaded ")
-
     picture_data["height"] = image1.shape[0]
     picture_data["width"] = image1.shape[1]
     for freq in tqdm(cutoff_freq):
@@ -53,7 +50,6 @@ for pictures in tqdm(pictures_mydata):
                                 sigma=freq)
         filter = np.dot(filter, filter.T)
         start = time.time()
-        
         print(" Applying low pass filter on ",pictures)
         blurry_dog = my_imfilter(image1, filter)
         done = time.time()
@@ -75,13 +71,9 @@ for pictures in tqdm(pictures_mydata):
         print(json.dumps(new_info, indent=4, sort_keys=True))
         picture_data[freq] = new_info
     print("Summary of Image ",pictures," :::=> ")
-    print(json.dumps(picture_data, indent=4, sort_keys=True))
+    #print(json.dumps(picture_data, indent=4, sort_keys=True))
     full_data[pictures] = picture_data
     with open('json_data.json', 'w') as f:
         json.dump(full_data, f,ensure_ascii=False, indent=4)
-
-
-
-
 
 
