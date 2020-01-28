@@ -8,7 +8,6 @@ Author: Jimut Bahan Pal
 Dated: 27th January, 2019
 """
 
-
 import os
 import cv2
 import sys
@@ -37,9 +36,16 @@ given_data=['bicycle.bmp',  'cat.bmp',  'einstein.bmp',  'marilyn.bmp','submarin
 cutoff_freq = [2,4,5,7,10,15,20,25,30]
 
 path_ = "../data/mydata/"
-full_data = {}
+full_data = data.copy()
+
 for pictures in tqdm(pictures_mydata):
     full_path = path_+pictures
+    try:
+        if len(data[pictures])>0:
+            print("Skipping ",pictures)
+            continue
+    except:
+        print("Continuing...")
     picture_data = {}
     image1 = load_image(full_path)
     print(pictures," :: loaded ")
