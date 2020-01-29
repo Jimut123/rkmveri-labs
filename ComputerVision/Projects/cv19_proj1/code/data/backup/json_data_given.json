@@ -1,0 +1,402 @@
+{
+    "bicycle.bmp": {
+        "height": 300,
+        "width": 453,
+        "2": {
+            "elapsed_lowpass": 6.209871053695679,
+            "elapsed_highpass": 6.012927055358887
+        },
+        "4": {
+            "elapsed_lowpass": 9.013423681259155,
+            "elapsed_highpass": 9.9804527759552
+        },
+        "5": {
+            "elapsed_lowpass": 11.656033039093018,
+            "elapsed_highpass": 11.077921628952026
+        },
+        "7": {
+            "elapsed_lowpass": 14.715635299682617,
+            "elapsed_highpass": 14.223021268844604
+        },
+        "10": {
+            "elapsed_lowpass": 20.492899417877197,
+            "elapsed_highpass": 20.927167892456055
+        },
+        "15": {
+            "elapsed_lowpass": 29.475589513778687,
+            "elapsed_highpass": 29.514490842819214
+        },
+        "20": {
+            "elapsed_lowpass": 40.343342304229736,
+            "elapsed_highpass": 42.54198718070984
+        },
+        "25": {
+            "elapsed_lowpass": 53.83178353309631,
+            "elapsed_highpass": 54.13195586204529
+        },
+        "30": {
+            "elapsed_lowpass": 60.338438272476196,
+            "elapsed_highpass": 60.995564222335815
+        }
+    },
+    "cat.bmp": {
+        "height": 361,
+        "width": 410,
+        "2": {
+            "elapsed_lowpass": 6.925080299377441,
+            "elapsed_highpass": 6.664032459259033
+        },
+        "4": {
+            "elapsed_lowpass": 10.375988721847534,
+            "elapsed_highpass": 10.444145441055298
+        },
+        "5": {
+            "elapsed_lowpass": 12.321078538894653,
+            "elapsed_highpass": 12.102418899536133
+        },
+        "7": {
+            "elapsed_lowpass": 16.657060146331787,
+            "elapsed_highpass": 16.542603492736816
+        },
+        "10": {
+            "elapsed_lowpass": 22.154600620269775,
+            "elapsed_highpass": 20.94264554977417
+        },
+        "15": {
+            "elapsed_lowpass": 34.27446246147156,
+            "elapsed_highpass": 31.756641149520874
+        },
+        "20": {
+            "elapsed_lowpass": 43.013418674468994,
+            "elapsed_highpass": 45.52700901031494
+        },
+        "25": {
+            "elapsed_lowpass": 54.10492300987244,
+            "elapsed_highpass": 54.449272871017456
+        },
+        "30": {
+            "elapsed_lowpass": 66.06069850921631,
+            "elapsed_highpass": 63.3889946937561
+        }
+    },
+    "einstein.bmp": {
+        "height": 265,
+        "width": 225,
+        "2": {
+            "elapsed_lowpass": 2.530322313308716,
+            "elapsed_highpass": 2.531564474105835
+        },
+        "4": {
+            "elapsed_lowpass": 3.98158597946167,
+            "elapsed_highpass": 3.9788053035736084
+        },
+        "5": {
+            "elapsed_lowpass": 4.724309921264648,
+            "elapsed_highpass": 4.703274250030518
+        },
+        "7": {
+            "elapsed_lowpass": 6.21964955329895,
+            "elapsed_highpass": 6.2692389488220215
+        },
+        "10": {
+            "elapsed_lowpass": 8.51185393333435,
+            "elapsed_highpass": 8.424029350280762
+        },
+        "15": {
+            "elapsed_lowpass": 12.412838220596313,
+            "elapsed_highpass": 13.046145915985107
+        },
+        "20": {
+            "elapsed_lowpass": 17.01673412322998,
+            "elapsed_highpass": 16.565377473831177
+        },
+        "25": {
+            "elapsed_lowpass": 20.86707615852356,
+            "elapsed_highpass": 21.68075203895569
+        },
+        "30": {
+            "elapsed_lowpass": 27.987378358840942,
+            "elapsed_highpass": 27.00101661682129
+        }
+    },
+    "marilyn.bmp": {
+        "height": 265,
+        "width": 225,
+        "2": {
+            "elapsed_lowpass": 2.6647939682006836,
+            "elapsed_highpass": 2.5899035930633545
+        },
+        "4": {
+            "elapsed_lowpass": 4.154076099395752,
+            "elapsed_highpass": 4.2504189014434814
+        },
+        "5": {
+            "elapsed_lowpass": 5.051803112030029,
+            "elapsed_highpass": 5.102630138397217
+        },
+        "7": {
+            "elapsed_lowpass": 6.587674617767334,
+            "elapsed_highpass": 6.247494220733643
+        },
+        "10": {
+            "elapsed_lowpass": 8.52831482887268,
+            "elapsed_highpass": 8.529730319976807
+        },
+        "15": {
+            "elapsed_lowpass": 12.330990076065063,
+            "elapsed_highpass": 12.45094347000122
+        },
+        "20": {
+            "elapsed_lowpass": 16.474166870117188,
+            "elapsed_highpass": 16.589161157608032
+        },
+        "25": {
+            "elapsed_lowpass": 21.1451678276062,
+            "elapsed_highpass": 21.16830587387085
+        },
+        "30": {
+            "elapsed_lowpass": 25.73988628387451,
+            "elapsed_highpass": 25.568687438964844
+        }
+    },
+    "submarine.bmp": {
+        "height": 307,
+        "width": 375,
+        "2": {
+            "elapsed_lowpass": 4.8610827922821045,
+            "elapsed_highpass": 4.853105306625366
+        },
+        "4": {
+            "elapsed_lowpass": 7.625039100646973,
+            "elapsed_highpass": 7.647759914398193
+        },
+        "5": {
+            "elapsed_lowpass": 9.021504878997803,
+            "elapsed_highpass": 9.01255488395691
+        },
+        "7": {
+            "elapsed_lowpass": 11.948203563690186,
+            "elapsed_highpass": 11.866535425186157
+        },
+        "10": {
+            "elapsed_lowpass": 16.168196439743042,
+            "elapsed_highpass": 16.15241837501526
+        },
+        "15": {
+            "elapsed_lowpass": 23.659318923950195,
+            "elapsed_highpass": 23.77225112915039
+        },
+        "20": {
+            "elapsed_lowpass": 31.777531147003174,
+            "elapsed_highpass": 31.616836547851562
+        },
+        "25": {
+            "elapsed_lowpass": 40.221874713897705,
+            "elapsed_highpass": 40.17805075645447
+        },
+        "30": {
+            "elapsed_lowpass": 50.52944350242615,
+            "elapsed_highpass": 49.02811408042908
+        }
+    },
+    "bird.bmp": {
+        "height": 331,
+        "width": 375,
+        "2": {
+            "elapsed_lowpass": 5.292687654495239,
+            "elapsed_highpass": 5.272351980209351
+        },
+        "4": {
+            "elapsed_lowpass": 8.163222074508667,
+            "elapsed_highpass": 8.293571472167969
+        },
+        "5": {
+            "elapsed_lowpass": 9.793164014816284,
+            "elapsed_highpass": 10.154839754104614
+        },
+        "7": {
+            "elapsed_lowpass": 12.797342538833618,
+            "elapsed_highpass": 12.806355953216553
+        },
+        "10": {
+            "elapsed_lowpass": 17.2724711894989,
+            "elapsed_highpass": 17.26376509666443
+        },
+        "15": {
+            "elapsed_lowpass": 25.580662488937378,
+            "elapsed_highpass": 25.534454107284546
+        },
+        "20": {
+            "elapsed_lowpass": 34.07027077674866,
+            "elapsed_highpass": 36.823370933532715
+        },
+        "25": {
+            "elapsed_lowpass": 44.53126811981201,
+            "elapsed_highpass": 43.451441049575806
+        },
+        "30": {
+            "elapsed_lowpass": 53.1461615562439,
+            "elapsed_highpass": 53.49468207359314
+        }
+    },
+    "dog.bmp": {
+        "height": 361,
+        "width": 410,
+        "2": {
+            "elapsed_lowpass": 6.379154920578003,
+            "elapsed_highpass": 6.251454830169678
+        },
+        "4": {
+            "elapsed_lowpass": 9.925724029541016,
+            "elapsed_highpass": 9.918360471725464
+        },
+        "5": {
+            "elapsed_lowpass": 11.669575452804565,
+            "elapsed_highpass": 11.605359554290771
+        },
+        "7": {
+            "elapsed_lowpass": 15.409253597259521,
+            "elapsed_highpass": 15.472705364227295
+        },
+        "10": {
+            "elapsed_lowpass": 21.079528093338013,
+            "elapsed_highpass": 21.056718587875366
+        },
+        "15": {
+            "elapsed_lowpass": 30.88441038131714,
+            "elapsed_highpass": 30.875588417053223
+        },
+        "20": {
+            "elapsed_lowpass": 44.97434616088867,
+            "elapsed_highpass": 45.59649658203125
+        },
+        "25": {
+            "elapsed_lowpass": 61.646318674087524,
+            "elapsed_highpass": 60.420106649398804
+        },
+        "30": {
+            "elapsed_lowpass": 80.0133490562439,
+            "elapsed_highpass": 66.94974112510681
+        }
+    },
+    "fish.bmp": {
+        "height": 307,
+        "width": 375,
+        "2": {
+            "elapsed_lowpass": 5.142289638519287,
+            "elapsed_highpass": 4.89129900932312
+        },
+        "4": {
+            "elapsed_lowpass": 7.685000658035278,
+            "elapsed_highpass": 7.684908866882324
+        },
+        "5": {
+            "elapsed_lowpass": 9.28968358039856,
+            "elapsed_highpass": 9.02193307876587
+        },
+        "7": {
+            "elapsed_lowpass": 11.959630966186523,
+            "elapsed_highpass": 11.92975640296936
+        },
+        "10": {
+            "elapsed_lowpass": 16.164077281951904,
+            "elapsed_highpass": 16.102200984954834
+        },
+        "15": {
+            "elapsed_lowpass": 23.576308250427246,
+            "elapsed_highpass": 23.557101011276245
+        },
+        "20": {
+            "elapsed_lowpass": 31.610771894454956,
+            "elapsed_highpass": 31.52706503868103
+        },
+        "25": {
+            "elapsed_lowpass": 40.02946066856384,
+            "elapsed_highpass": 40.04078912734985
+        },
+        "30": {
+            "elapsed_lowpass": 51.45453119277954,
+            "elapsed_highpass": 49.765281200408936
+        }
+    },
+    "motorcycle.bmp": {
+        "height": 300,
+        "width": 453,
+        "2": {
+            "elapsed_lowpass": 5.930650472640991,
+            "elapsed_highpass": 5.66605544090271
+        },
+        "4": {
+            "elapsed_lowpass": 9.23404598236084,
+            "elapsed_highpass": 10.331913471221924
+        },
+        "5": {
+            "elapsed_lowpass": 10.728171586990356,
+            "elapsed_highpass": 11.76632809638977
+        },
+        "7": {
+            "elapsed_lowpass": 16.978042602539062,
+            "elapsed_highpass": 15.102392673492432
+        },
+        "10": {
+            "elapsed_lowpass": 20.889681816101074,
+            "elapsed_highpass": 20.242820024490356
+        },
+        "15": {
+            "elapsed_lowpass": 28.96012020111084,
+            "elapsed_highpass": 29.360092878341675
+        },
+        "20": {
+            "elapsed_lowpass": 38.415470600128174,
+            "elapsed_highpass": 39.253512382507324
+        },
+        "25": {
+            "elapsed_lowpass": 53.1187641620636,
+            "elapsed_highpass": 47.80085754394531
+        },
+        "30": {
+            "elapsed_lowpass": 57.886820793151855,
+            "elapsed_highpass": 57.93708419799805
+        }
+    },
+    "plane.bmp": {
+        "height": 331,
+        "width": 375,
+        "2": {
+            "elapsed_lowpass": 5.273557186126709,
+            "elapsed_highpass": 5.2740960121154785
+        },
+        "4": {
+            "elapsed_lowpass": 8.275035381317139,
+            "elapsed_highpass": 8.236109256744385
+        },
+        "5": {
+            "elapsed_lowpass": 9.763373613357544,
+            "elapsed_highpass": 9.756385087966919
+        },
+        "7": {
+            "elapsed_lowpass": 12.887778997421265,
+            "elapsed_highpass": 12.896596670150757
+        },
+        "10": {
+            "elapsed_lowpass": 17.562517881393433,
+            "elapsed_highpass": 17.55438494682312
+        },
+        "15": {
+            "elapsed_lowpass": 25.77657985687256,
+            "elapsed_highpass": 25.72389817237854
+        },
+        "20": {
+            "elapsed_lowpass": 34.1715292930603,
+            "elapsed_highpass": 34.26178693771362
+        },
+        "25": {
+            "elapsed_lowpass": 43.107290506362915,
+            "elapsed_highpass": 42.900714635849
+        },
+        "30": {
+            "elapsed_lowpass": 52.53844857215881,
+            "elapsed_highpass": 52.54701495170593
+        }
+    }
+}

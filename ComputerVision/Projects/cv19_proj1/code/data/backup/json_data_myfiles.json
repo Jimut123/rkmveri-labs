@@ -1,0 +1,682 @@
+{
+    "cowboyhat.jpg": {
+        "height": 368,
+        "width": 569,
+        "2": {
+            "elapsed_lowpass": 9.797143936157227,
+            "elapsed_highpass": 10.424846410751343
+        },
+        "4": {
+            "elapsed_lowpass": 14.390746593475342,
+            "elapsed_highpass": 14.376689910888672
+        },
+        "5": {
+            "elapsed_lowpass": 16.84208393096924,
+            "elapsed_highpass": 16.902072429656982
+        },
+        "7": {
+            "elapsed_lowpass": 21.65727686882019,
+            "elapsed_highpass": 21.761889457702637
+        },
+        "10": {
+            "elapsed_lowpass": 29.52527165412903,
+            "elapsed_highpass": 29.705114603042603
+        },
+        "15": {
+            "elapsed_lowpass": 43.59519577026367,
+            "elapsed_highpass": 43.562331199645996
+        },
+        "20": {
+            "elapsed_lowpass": 58.69470691680908,
+            "elapsed_highpass": 58.453099966049194
+        },
+        "25": {
+            "elapsed_lowpass": 73.84947228431702,
+            "elapsed_highpass": 73.9972677230835
+        },
+        "30": {
+            "elapsed_lowpass": 90.11183619499207,
+            "elapsed_highpass": 96.94441246986389
+        }
+    },
+    "lambo.jpg": {
+        "height": 578,
+        "width": 872,
+        "2": {
+            "elapsed_lowpass": 22.669713973999023,
+            "elapsed_highpass": 23.62184715270996
+        },
+        "4": {
+            "elapsed_lowpass": 36.25601816177368,
+            "elapsed_highpass": 36.23782658576965
+        },
+        "5": {
+            "elapsed_lowpass": 41.65082406997681,
+            "elapsed_highpass": 41.19259572029114
+        },
+        "7": {
+            "elapsed_lowpass": 55.02137088775635,
+            "elapsed_highpass": 57.275519371032715
+        },
+        "10": {
+            "elapsed_lowpass": 74.9698212146759,
+            "elapsed_highpass": 73.77410197257996
+        },
+        "15": {
+            "elapsed_lowpass": 111.63345456123352,
+            "elapsed_highpass": 111.6278932094574
+        },
+        "20": {
+            "elapsed_lowpass": 154.70758366584778,
+            "elapsed_highpass": 152.4540355205536
+        },
+        "25": {
+            "elapsed_lowpass": 202.51007270812988,
+            "elapsed_highpass": 195.97028017044067
+        },
+        "30": {
+            "elapsed_lowpass": 232.54516696929932,
+            "elapsed_highpass": 242.37530088424683
+        }
+    },
+    "mexican_house.jpg": {
+        "height": 829,
+        "width": 1400,
+        "2": {
+            "elapsed_lowpass": 60.33317565917969,
+            "elapsed_highpass": 58.463995695114136
+        },
+        "4": {
+            "elapsed_lowpass": 92.38736820220947,
+            "elapsed_highpass": 87.48999428749084
+        },
+        "5": {
+            "elapsed_lowpass": 95.04945826530457,
+            "elapsed_highpass": 95.61820602416992
+        },
+        "7": {
+            "elapsed_lowpass": 153.06997179985046,
+            "elapsed_highpass": 154.38675332069397
+        },
+        "10": {
+            "elapsed_lowpass": 204.76462745666504,
+            "elapsed_highpass": 172.15910029411316
+        },
+        "15": {
+            "elapsed_lowpass": 242.57761406898499,
+            "elapsed_highpass": 239.48131322860718
+        },
+        "20": {
+            "elapsed_lowpass": 318.84785556793213,
+            "elapsed_highpass": 318.2392463684082
+        },
+        "25": {
+            "elapsed_lowpass": 403.14158177375793,
+            "elapsed_highpass": 403.4084315299988
+        },
+        "30": {
+            "elapsed_lowpass": 488.30967807769775,
+            "elapsed_highpass": 487.505380153656
+        }
+    },
+    "palm.jpg": {
+        "height": 1920,
+        "width": 1080,
+        "2": {
+            "elapsed_lowpass": 88.20575284957886,
+            "elapsed_highpass": 87.42792010307312
+        },
+        "4": {
+            "elapsed_lowpass": 140.72816801071167,
+            "elapsed_highpass": 140.64035940170288
+        },
+        "5": {
+            "elapsed_lowpass": 163.71340489387512,
+            "elapsed_highpass": 163.61468696594238
+        },
+        "7": {
+            "elapsed_lowpass": 215.98810744285583,
+            "elapsed_highpass": 215.52492094039917
+        },
+        "10": {
+            "elapsed_lowpass": 292.39898467063904,
+            "elapsed_highpass": 294.14120411872864
+        },
+        "15": {
+            "elapsed_lowpass": 430.6447353363037,
+            "elapsed_highpass": 430.74269556999207
+        },
+        "20": {
+            "elapsed_lowpass": 568.7275288105011,
+            "elapsed_highpass": 575.6238729953766
+        },
+        "25": {
+            "elapsed_lowpass": 725.5920805931091,
+            "elapsed_highpass": 830.4352266788483
+        },
+        "30": {
+            "elapsed_lowpass": 954.8900036811829,
+            "elapsed_highpass": 877.9296643733978
+        }
+    },
+    "sasuke.png": {
+        "height": 1155,
+        "width": 692,
+        "2": {
+            "elapsed_lowpass": 33.937061071395874,
+            "elapsed_highpass": 33.8582706451416
+        },
+        "4": {
+            "elapsed_lowpass": 54.09281802177429,
+            "elapsed_highpass": 54.164387226104736
+        },
+        "5": {
+            "elapsed_lowpass": 63.911176681518555,
+            "elapsed_highpass": 63.89437294006348
+        },
+        "7": {
+            "elapsed_lowpass": 83.62377166748047,
+            "elapsed_highpass": 83.47143483161926
+        },
+        "10": {
+            "elapsed_lowpass": 112.38545608520508,
+            "elapsed_highpass": 113.12303853034973
+        },
+        "15": {
+            "elapsed_lowpass": 165.19901251792908,
+            "elapsed_highpass": 165.42621755599976
+        },
+        "20": {
+            "elapsed_lowpass": 220.03282284736633,
+            "elapsed_highpass": 220.25284123420715
+        },
+        "25": {
+            "elapsed_lowpass": 277.4301347732544,
+            "elapsed_highpass": 277.3667333126068
+        },
+        "30": {
+            "elapsed_lowpass": 337.5654957294464,
+            "elapsed_highpass": 337.4352910518646
+        }
+    },
+    "viveka.jpg": {
+        "height": 272,
+        "width": 186,
+        "2": {
+            "elapsed_lowpass": 2.1412606239318848,
+            "elapsed_highpass": 2.145615339279175
+        },
+        "4": {
+            "elapsed_lowpass": 3.424708604812622,
+            "elapsed_highpass": 3.426651954650879
+        },
+        "5": {
+            "elapsed_lowpass": 4.030125141143799,
+            "elapsed_highpass": 4.055616140365601
+        },
+        "7": {
+            "elapsed_lowpass": 5.3149402141571045,
+            "elapsed_highpass": 5.268054962158203
+        },
+        "10": {
+            "elapsed_lowpass": 7.212125778198242,
+            "elapsed_highpass": 7.162642955780029
+        },
+        "15": {
+            "elapsed_lowpass": 10.485599040985107,
+            "elapsed_highpass": 10.44674038887024
+        },
+        "20": {
+            "elapsed_lowpass": 14.023985147476196,
+            "elapsed_highpass": 13.951615571975708
+        },
+        "25": {
+            "elapsed_lowpass": 17.5780131816864,
+            "elapsed_highpass": 17.6202175617218
+        },
+        "30": {
+            "elapsed_lowpass": 21.279874563217163,
+            "elapsed_highpass": 21.386322498321533
+        }
+    },
+    "ferrari.jpg": {
+        "height": 774,
+        "width": 1160,
+        "2": {
+            "elapsed_lowpass": 38.051435470581055,
+            "elapsed_highpass": 38.23834228515625
+        },
+        "4": {
+            "elapsed_lowpass": 61.162678718566895,
+            "elapsed_highpass": 60.8662486076355
+        },
+        "5": {
+            "elapsed_lowpass": 71.691237449646,
+            "elapsed_highpass": 71.95005965232849
+        },
+        "7": {
+            "elapsed_lowpass": 94.50702619552612,
+            "elapsed_highpass": 94.31368112564087
+        },
+        "10": {
+            "elapsed_lowpass": 127.20067477226257,
+            "elapsed_highpass": 127.06083393096924
+        },
+        "15": {
+            "elapsed_lowpass": 185.53830575942993,
+            "elapsed_highpass": 186.33793210983276
+        },
+        "20": {
+            "elapsed_lowpass": 247.4885973930359,
+            "elapsed_highpass": 247.74562549591064
+        },
+        "25": {
+            "elapsed_lowpass": 313.4049139022827,
+            "elapsed_highpass": 312.6751608848572
+        },
+        "30": {
+            "elapsed_lowpass": 379.9529540538788,
+            "elapsed_highpass": 378.9388699531555
+        }
+    },
+    "mattd.jpg": {
+        "height": 837,
+        "width": 600,
+        "2": {
+            "elapsed_lowpass": 21.381539583206177,
+            "elapsed_highpass": 21.182181119918823
+        },
+        "4": {
+            "elapsed_lowpass": 33.84293055534363,
+            "elapsed_highpass": 37.856066942214966
+        },
+        "5": {
+            "elapsed_lowpass": 40.290884494781494,
+            "elapsed_highpass": 40.029797315597534
+        },
+        "7": {
+            "elapsed_lowpass": 52.486027002334595,
+            "elapsed_highpass": 52.376240253448486
+        },
+        "10": {
+            "elapsed_lowpass": 71.22132301330566,
+            "elapsed_highpass": 71.26692700386047
+        },
+        "15": {
+            "elapsed_lowpass": 104.2765884399414,
+            "elapsed_highpass": 104.16480588912964
+        },
+        "20": {
+            "elapsed_lowpass": 137.9572353363037,
+            "elapsed_highpass": 138.32436060905457
+        },
+        "25": {
+            "elapsed_lowpass": 176.31384468078613,
+            "elapsed_highpass": 176.55484342575073
+        },
+        "30": {
+            "elapsed_lowpass": 215.8039379119873,
+            "elapsed_highpass": 216.04827761650085
+        }
+    },
+    "naruto.jpg": {
+        "height": 1577,
+        "width": 894,
+        "2": {
+            "elapsed_lowpass": 60.19366407394409,
+            "elapsed_highpass": 60.286765575408936
+        },
+        "4": {
+            "elapsed_lowpass": 97.16123247146606,
+            "elapsed_highpass": 95.94206190109253
+        },
+        "5": {
+            "elapsed_lowpass": 111.62044095993042,
+            "elapsed_highpass": 112.1446681022644
+        },
+        "7": {
+            "elapsed_lowpass": 147.2641589641571,
+            "elapsed_highpass": 146.8425006866455
+        },
+        "10": {
+            "elapsed_lowpass": 199.09155106544495,
+            "elapsed_highpass": 198.76880812644958
+        },
+        "15": {
+            "elapsed_lowpass": 290.84273767471313,
+            "elapsed_highpass": 290.71763825416565
+        },
+        "20": {
+            "elapsed_lowpass": 388.5721185207367,
+            "elapsed_highpass": 387.0667209625244
+        },
+        "25": {
+            "elapsed_lowpass": 490.5373077392578,
+            "elapsed_highpass": 491.7745110988617
+        },
+        "30": {
+            "elapsed_lowpass": 598.9738495349884,
+            "elapsed_highpass": 618.960554599762
+        }
+    },
+    "ramakrishna.jpg": {
+        "height": 576,
+        "width": 459,
+        "2": {
+            "elapsed_lowpass": 11.608258485794067,
+            "elapsed_highpass": 11.662720203399658
+        },
+        "4": {
+            "elapsed_lowpass": 18.368999242782593,
+            "elapsed_highpass": 18.39538836479187
+        },
+        "5": {
+            "elapsed_lowpass": 21.603050470352173,
+            "elapsed_highpass": 21.681655406951904
+        },
+        "7": {
+            "elapsed_lowpass": 27.86073923110962,
+            "elapsed_highpass": 27.803439378738403
+        },
+        "10": {
+            "elapsed_lowpass": 37.53693199157715,
+            "elapsed_highpass": 37.75651931762695
+        },
+        "15": {
+            "elapsed_lowpass": 55.20813608169556,
+            "elapsed_highpass": 55.13579726219177
+        },
+        "20": {
+            "elapsed_lowpass": 74.06714272499084,
+            "elapsed_highpass": 75.44484448432922
+        },
+        "25": {
+            "elapsed_lowpass": 93.81372237205505,
+            "elapsed_highpass": 93.37145137786865
+        },
+        "30": {
+            "elapsed_lowpass": 113.02115654945374,
+            "elapsed_highpass": 201.53756380081177
+        }
+    },
+    "tom.jpg": {
+        "height": 409,
+        "width": 615,
+        "2": {
+            "elapsed_lowpass": 11.04256796836853,
+            "elapsed_highpass": 10.994034767150879
+        },
+        "4": {
+            "elapsed_lowpass": 17.235400915145874,
+            "elapsed_highpass": 17.114078521728516
+        },
+        "5": {
+            "elapsed_lowpass": 20.252434730529785,
+            "elapsed_highpass": 20.23308563232422
+        },
+        "7": {
+            "elapsed_lowpass": 26.948363304138184,
+            "elapsed_highpass": 27.084859609603882
+        },
+        "10": {
+            "elapsed_lowpass": 36.67940855026245,
+            "elapsed_highpass": 36.63875722885132
+        },
+        "15": {
+            "elapsed_lowpass": 53.24413776397705,
+            "elapsed_highpass": 53.300689935684204
+        },
+        "20": {
+            "elapsed_lowpass": 71.45613718032837,
+            "elapsed_highpass": 71.53793954849243
+        },
+        "25": {
+            "elapsed_lowpass": 90.22075152397156,
+            "elapsed_highpass": 90.58096313476562
+        },
+        "30": {
+            "elapsed_lowpass": 110.33700489997864,
+            "elapsed_highpass": 110.3750855922699
+        }
+    },
+    "ylambo.jpg": {
+        "height": 510,
+        "width": 827,
+        "2": {
+            "elapsed_lowpass": 18.537625551223755,
+            "elapsed_highpass": 18.35022211074829
+        },
+        "4": {
+            "elapsed_lowpass": 29.088528394699097,
+            "elapsed_highpass": 29.012993335723877
+        },
+        "5": {
+            "elapsed_lowpass": 34.38778281211853,
+            "elapsed_highpass": 34.419689416885376
+        },
+        "7": {
+            "elapsed_lowpass": 44.79341530799866,
+            "elapsed_highpass": 44.84607410430908
+        },
+        "10": {
+            "elapsed_lowpass": 61.06623697280884,
+            "elapsed_highpass": 61.12716722488403
+        },
+        "15": {
+            "elapsed_lowpass": 89.71946358680725,
+            "elapsed_highpass": 90.10448241233826
+        },
+        "20": {
+            "elapsed_lowpass": 119.44538569450378,
+            "elapsed_highpass": 119.97678971290588
+        },
+        "25": {
+            "elapsed_lowpass": 150.94583129882812,
+            "elapsed_highpass": 150.9849500656128
+        },
+        "30": {
+            "elapsed_lowpass": 183.54974269866943,
+            "elapsed_highpass": 183.72820591926575
+        }
+    },
+    "housebung.jpg": {
+        "height": 648,
+        "width": 1067,
+        "2": {
+            "elapsed_lowpass": 29.795430660247803,
+            "elapsed_highpass": 29.668808221817017
+        },
+        "4": {
+            "elapsed_lowpass": 47.029268980026245,
+            "elapsed_highpass": 47.16558909416199
+        },
+        "5": {
+            "elapsed_lowpass": 55.52722978591919,
+            "elapsed_highpass": 55.62905550003052
+        },
+        "7": {
+            "elapsed_lowpass": 73.0923900604248,
+            "elapsed_highpass": 73.20024275779724
+        },
+        "10": {
+            "elapsed_lowpass": 99.29082369804382,
+            "elapsed_highpass": 99.2797532081604
+        },
+        "15": {
+            "elapsed_lowpass": 146.00183653831482,
+            "elapsed_highpass": 145.9793107509613
+        },
+        "20": {
+            "elapsed_lowpass": 195.98965454101562,
+            "elapsed_highpass": 196.0623071193695
+        },
+        "25": {
+            "elapsed_lowpass": 247.1136918067932,
+            "elapsed_highpass": 247.50594782829285
+        },
+        "30": {
+            "elapsed_lowpass": 302.5443880558014,
+            "elapsed_highpass": 302.56939721107483
+        }
+    },
+    "mexican_hat.jpg": {
+        "height": 375,
+        "width": 375,
+        "2": {
+            "elapsed_lowpass": 6.086733818054199,
+            "elapsed_highpass": 6.060244798660278
+        },
+        "4": {
+            "elapsed_lowpass": 9.534784317016602,
+            "elapsed_highpass": 9.562345743179321
+        },
+        "5": {
+            "elapsed_lowpass": 11.383610010147095,
+            "elapsed_highpass": 11.411720752716064
+        },
+        "7": {
+            "elapsed_lowpass": 14.992161989212036,
+            "elapsed_highpass": 14.920685768127441
+        },
+        "10": {
+            "elapsed_lowpass": 20.467318058013916,
+            "elapsed_highpass": 20.32806396484375
+        },
+        "15": {
+            "elapsed_lowpass": 29.987518787384033,
+            "elapsed_highpass": 29.973482131958008
+        },
+        "20": {
+            "elapsed_lowpass": 40.368940353393555,
+            "elapsed_highpass": 40.00856876373291
+        },
+        "25": {
+            "elapsed_lowpass": 50.45556139945984,
+            "elapsed_highpass": 50.414191484451294
+        },
+        "30": {
+            "elapsed_lowpass": 61.1853449344635,
+            "elapsed_highpass": 60.97715210914612
+        }
+    },
+    "olive.jpg": {
+        "height": 1200,
+        "width": 1200,
+        "2": {
+            "elapsed_lowpass": 63.14069938659668,
+            "elapsed_highpass": 63.12134623527527
+        },
+        "4": {
+            "elapsed_lowpass": 99.277188539505,
+            "elapsed_highpass": 99.2809009552002
+        },
+        "5": {
+            "elapsed_lowpass": 116.7099711894989,
+            "elapsed_highpass": 116.8964467048645
+        },
+        "7": {
+            "elapsed_lowpass": 154.02411341667175,
+            "elapsed_highpass": 153.5921492576599
+        },
+        "10": {
+            "elapsed_lowpass": 208.33028173446655,
+            "elapsed_highpass": 208.7616469860077
+        },
+        "15": {
+            "elapsed_lowpass": 305.8004860877991,
+            "elapsed_highpass": 305.103636264801
+        },
+        "20": {
+            "elapsed_lowpass": 405.9112956523895,
+            "elapsed_highpass": 406.4571387767792
+        },
+        "25": {
+            "elapsed_lowpass": 512.4878299236298,
+            "elapsed_highpass": 513.5268018245697
+        },
+        "30": {
+            "elapsed_lowpass": 624.195925951004,
+            "elapsed_highpass": 625.9196224212646
+        }
+    },
+    "sasuke.jpg": {
+        "height": 991,
+        "width": 721,
+        "2": {
+            "elapsed_lowpass": 31.2287654876709,
+            "elapsed_highpass": 31.12937617301941
+        },
+        "4": {
+            "elapsed_lowpass": 49.52168893814087,
+            "elapsed_highpass": 49.39753484725952
+        },
+        "5": {
+            "elapsed_lowpass": 58.09957981109619,
+            "elapsed_highpass": 58.09170937538147
+        },
+        "7": {
+            "elapsed_lowpass": 77.11771941184998,
+            "elapsed_highpass": 77.14256548881531
+        },
+        "10": {
+            "elapsed_lowpass": 104.52911400794983,
+            "elapsed_highpass": 104.4856972694397
+        },
+        "15": {
+            "elapsed_lowpass": 150.86957216262817,
+            "elapsed_highpass": 150.81682586669922
+        },
+        "20": {
+            "elapsed_lowpass": 204.3189558982849,
+            "elapsed_highpass": 203.1908037662506
+        },
+        "25": {
+            "elapsed_lowpass": 255.96571564674377,
+            "elapsed_highpass": 255.30021142959595
+        },
+        "30": {
+            "elapsed_lowpass": 311.1032521724701,
+            "elapsed_highpass": 311.64753103256226
+        }
+    },
+    "tomsad.jpg": {
+        "height": 525,
+        "width": 350,
+        "2": {
+            "elapsed_lowpass": 8.063689947128296,
+            "elapsed_highpass": 8.076062202453613
+        },
+        "4": {
+            "elapsed_lowpass": 12.768567085266113,
+            "elapsed_highpass": 12.74179458618164
+        },
+        "5": {
+            "elapsed_lowpass": 14.953974723815918,
+            "elapsed_highpass": 14.954079866409302
+        },
+        "7": {
+            "elapsed_lowpass": 19.67220664024353,
+            "elapsed_highpass": 19.738486289978027
+        },
+        "10": {
+            "elapsed_lowpass": 26.67131805419922,
+            "elapsed_highpass": 26.808759689331055
+        },
+        "15": {
+            "elapsed_lowpass": 39.10555958747864,
+            "elapsed_highpass": 38.95720458030701
+        },
+        "20": {
+            "elapsed_lowpass": 52.22436022758484,
+            "elapsed_highpass": 52.348504066467285
+        },
+        "25": {
+            "elapsed_lowpass": 65.81618905067444,
+            "elapsed_highpass": 65.65903568267822
+        },
+        "30": {
+            "elapsed_lowpass": 80.39461874961853,
+            "elapsed_highpass": 80.49780297279358
+        }
+    }
+}
