@@ -52,11 +52,14 @@ def my_imfilter(image, filter):
   
   return filtered_image
 
-def create_hybrid_image(image1, image2, filter,first_weight):
+def create_hybrid_image(image1, image2, filter,first_weight,filter_type):
   """
   Takes two images and creates a hybrid image. Returns the low
   frequency content of image1, the high frequency content of
-  image 2, and the hybrid image.
+  image 2, and the hybrid image. 
+
+  Filter type of 1 generates the inverse of a Gaussian filter with the central point 
+  at the inverse peak. The second type of filter generates the (N*N) sobel filter.
 
   Args
   - image1: numpy nd-array of dim (m, n, c)
@@ -84,12 +87,18 @@ def create_hybrid_image(image1, image2, filter,first_weight):
   ### TODO: YOUR CODE HERE ###
   # low pass filter is the normal gaussian distribution
   low_frequencies = my_imfilter(image1,filter)
-  # high pass filter is the negative of the gaussian distribution
-  h=-filter
-  h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = filter[int(filter.shape[0]/2),int(filter.shape[0]/2)]
-  h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = h[int(filter.shape[0]/2),int(filter.shape[0]/2)] -h.sum()
-  high_frequencies = my_imfilter(image2,h)
-  hybrid_image = first_weight*low_frequencies + (1-first_weight)*high_frequencies
+  if filter_type == 1:
+    # high pass filter is the negative of the gaussian distribution
+    h=-filter
+    h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = filter[int(filter.shape[0]/2),int(filter.shape[0]/2)]
+    h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = h[int(filter.shape[0]/2),int(filter.shape[0]/2)] -h.sum()
+    high_frequencies = my_imfilter(image2,h)
+    hybrid_image = first_weight*low_frequencies + (1-first_weight)*high_frequencies
+  elif filter_type == 2:
+    high_frequencies =  image2 - my_imfilter(image2, filter)
+    hybrid_image = first_weight*low_frequencies + (1-first_weight)*high_frequencies
+    hybrid_image = np.clip(hybrid_image, 0.0, 1.0)
+
   ### END OF STUDENT CODE ####
   ############################
 
