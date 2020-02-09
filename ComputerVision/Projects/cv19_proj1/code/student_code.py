@@ -84,8 +84,8 @@ def create_hybrid_image(image1, image2, filter,first_weight,filter_type):
   assert image1.shape[2] == image2.shape[2]
 
   ############################
-  ### TODO: YOUR CODE HERE ###
   # low pass filter is the normal gaussian distribution
+
   low_frequencies = my_imfilter(image1,filter)
   if filter_type == 1:
     # high pass filter is the negative of the gaussian distribution
@@ -94,11 +94,13 @@ def create_hybrid_image(image1, image2, filter,first_weight,filter_type):
     h[int(filter.shape[0]/2),int(filter.shape[0]/2)] = h[int(filter.shape[0]/2),int(filter.shape[0]/2)] -h.sum()
     high_frequencies = my_imfilter(image2,h)
     hybrid_image = first_weight*low_frequencies + (1-first_weight)*high_frequencies
+    hybrid_image = np.clip(hybrid_image, 0.0, 1.0)
   elif filter_type == 2:
     high_frequencies =  image2 - my_imfilter(image2, filter)
     hybrid_image = first_weight*low_frequencies + (1-first_weight)*high_frequencies
+    #print(hybrid_image.max())
     hybrid_image = np.clip(hybrid_image, 0.0, 1.0)
-
+    #print(hybrid_image.max())
   ### END OF STUDENT CODE ####
   ############################
 
