@@ -7,7 +7,7 @@ from utils import  hough_peaks
 
 def hough_lines_vote_acc(edge_img, rho_res=1, thetas= np.arange(0,180)):
     """
-      Creating an Hough Vote Accumulator. The Generated grid will have theatas on 
+      Creating an Hough Vote Accumulator. The Generated grid will have thetas on 
       X axis, and rhos on the Y axis. 
 
       Args
@@ -24,12 +24,22 @@ def hough_lines_vote_acc(edge_img, rho_res=1, thetas= np.arange(0,180)):
        that takes a reasonable amount of time to run so that I can verify
        your code works.
     """
-
-    
     ############################
     ### TODO: YOUR CODE HERE ###
-  
-
+    max_rad = edge_img.shape[0] + edge_img.shape[1]
+    accumulator = [[0 for x in range(max_rad)] for y in range(max_rad)]  #np.zeros((max_rad,max_rad))
+    #print(accumulator)
+    for x in range(edge_img.shape[0]):
+        for y in range(edge_img.shape[1]):
+            if edge_img[x][y] == 255:
+                for theta in thetas:
+                    # convert it into radians multiply by (np.pi/180)
+                    rho = x*np.cos(theta*np.pi/180)+y*np.sin(theta*np.pi/180)
+                    #print(rho)
+                    #print("Type = ",rho," ",theta)
+                    accumulator[int(rho.astype(int))][theta] += 1
+    rhos = [x for x in range(max_rad)]
+    accumulator = np.asarray(accumulator, dtype=np.float32)
     ### END OF STUDENT CODE ####
     ############################
     return accumulator, thetas, rhos
