@@ -26,8 +26,9 @@ def hough_lines_vote_acc(edge_img, rho_res=1, thetas= np.arange(0,180)):
     """
     ############################
     ### TODO: YOUR CODE HERE ###
+    # x*cos(theta) + y*sin(theta) max value sin,cos theta can take is 1
     max_rad = edge_img.shape[0] + edge_img.shape[1]
-    accumulator = [[0 for x in range(max_rad)] for y in range(max_rad)]  #np.zeros((max_rad,max_rad))
+    accumulator = [[0 for x in range(180)] for y in range(max_rad)]  #np.zeros((max_rad,max_rad))
     #print(accumulator)
     for x in range(edge_img.shape[0]):
         for y in range(edge_img.shape[1]):
@@ -64,12 +65,21 @@ def hough_circles_vote_acc(edge_img, radius):
        that takes a reasonable amount of time to run so that I can verify
        your code works.
     """
-  
-    
     ############################
     ### TODO: YOUR CODE HERE ###
-  
 
+    # Naive version of the accumulator needs 3 dimensional matrix
+    # Hough Gradient Method will give faster results
+
+    accumulator = [[0 for x in range(2*edge_img.shape[0]+radius)] for y in range(2*edge_img.shape[1]+radius)]
+    for x in range(edge_img.shape[0]):
+        for y in range(edge_img.shape[1]):
+            if edge_img[x][y] == 255:
+                    for theta in range(0,360):
+                        a = x + radius * np.cos(theta*np.pi/180)    # x – r * cos(t * PI / 180);
+                        b = y + radius * np.sin(theta*np.pi/180)    # y – r * sin(t * PI / 180);
+                        accumulator[int(a)][int(b)] += 1 
+    accumulator = np.asarray(accumulator, dtype=np.float32)
     ### END OF STUDENT CODE ####
     ############################        
     return accumulator
