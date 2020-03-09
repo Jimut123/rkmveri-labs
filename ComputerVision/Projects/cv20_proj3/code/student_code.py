@@ -6,12 +6,14 @@ import cv2 # You must not use cv2.cornerHarris()
 ### If you need additional helper methods, add those. 
 ### Write details description of those
 
+### Other codes given by guide
+
 """
   Returns the harris corners,  image derivative in X direction,  and 
   image derivative in Y direction.
   Args
   - image: numpy nd-array of dim (m, n, c)
-  - window_size: The shaps of the windows for harris corner is (window_size, wind)
+  - window_size: The shape of the windows for harris corner is (window_size, wind)
   - alpha: used in calculating corner response function R
   - threshold: For accepting any point as a corner, the R value must be 
    greater then threshold * maximum R value. 
@@ -23,11 +25,12 @@ import cv2 # You must not use cv2.cornerHarris()
   - Iy: image derivative in Y direction
 
 """
-def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2,
-                  nms_size=10):
-
+def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10):
     ### YOUR CODE HERE
-
+    Ix = cv2.Sobel(image,cv2.CV_64F,1,0,ksize=5)
+    Iy = cv2.Sobel(image,cv2.CV_64F,0,1,ksize=5)  
+    Ixy = cv2.Sobel(image,cv2.CV_64F,1,1,ksize=5) 
+    
     return corners, Ix, Iy
 
 """
