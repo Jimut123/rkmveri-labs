@@ -91,47 +91,47 @@ def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10
             trace = Sx2 + Sy2
             r = det - alpha*(trace**2)
             Response_mat[y][x] = r
-    Response_mat = np.clip(Response_mat, -255.0, 255.0)
-    Backup_response = Response_mat.copy()    
+    brm = Response_mat.copy()
+    clipped_Response_mat = np.clip(brm, -255.0, 255.0)
     fig = plt.figure(figsize=(5, 5))
     ax1 = fig.add_subplot(1,1,1)
-    ax1.imshow(Backup_response)#,cmap='gray')
+    ax1.imshow(clipped_Response_mat)#,cmap='gray')
     plt.title("Response matrix")
     plt.axis('off')
 
     #performing NMS
     corners = []
     nms_pad = int(nms_size/2)
+
     for y in range(nms_pad,height-nms_pad):
         for x in range(nms_pad,width-nms_pad):
             # perform NMS
             # https://stackoverflow.com/questions/56099302/how-to-zero-out-all-values-of-matrix-2d-array-except-top-n-values-using-numpy
             nullified_arr = np.zeros_like(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad])
-            top_n = 6
-            top_n_idxs = np.argpartition(Response_mat[y-nms_pad:y+nms_pad,
-                          x-nms_pad:x+nms_pad].reshape(-1), -top_n)[-top_n:]
-
-            nullified_arr.reshape(-1)[top_n_idxs] = Response_mat[y-nms_pad:y+nms_pad,
-                          x-nms_pad:x+nms_pad].reshape(-1)[top_n_idxs]
-
+            top_n = 1
+            top_n_idxs = np.argpartition(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad].reshape(-1), -top_n)[-top_n:]
+            if int(top_n_idxs[0]) == 0:
+              #print("c")
+              continue
+            #print("Top_n_idx : ",top_n_idxs)
+            nullified_arr.reshape(-1)[top_n_idxs] = Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad].reshape(-1)[top_n_idxs]
+            #print(nullified_arr)
             Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad] = nullified_arr
+            #print(Response_mat)
             x_val,y_val = np.where(Response_mat[y-nms_pad:y+nms_pad,
-                          x-nms_pad:x+nms_pad]==np.max(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad]))
-            try:
-              #print([int(x_val[0]),int(y_val[0])])
-              corners.append([int(x_val[0]),int(y_val[0])])
-            except:
-              #print("err")
-              pass
-            x=x+10
-        y=y+10
-    #img1_gray_blur
+                          x-nms_pad:x+nms_pad]==np.max(nullified_arr))
+            x=x+nms_size
+        y=y+nms_size
     fig = plt.figure(figsize=(5, 5))
     ax1 = fig.add_subplot(1,1,1)
     ax1.imshow(Response_mat)#,cmap='gray')
     plt.title("NMS matrix")
     plt.axis('off')
-
+    corners = []
+    for y in range(0,width):
+        for x in range(0,height):
+            if Response_mat[x][y]>0:
+              corners.append([x,y])
     return corners, Ix, Iy
 
 
@@ -157,16 +157,17 @@ def get_keypoints(corners, Ix, Iy, threshold):
     ### YOUR CODE HERE 
     keypoints = []
     points = []
-    for x,y in corners:
+    for y,x in corners:
         #print(item[0],item[1])
         gx = Ix[y,x]
         gy = Iy[y,x]
         gx2 = gx*gx
         gy2 = gy*gy
         mag_ = math.sqrt(gx2+gy2)
+        tan_inv = math.degrees(math.atan(gy/gx))
         points.append(mag_)
-        if mag_> 80:
-          keypoints.append(cv2.KeyPoint(x, y, mag_))
+        if mag_> threshold:
+          keypoints.append(cv2.KeyPoint(x, y, _size=mag_,_angle=tan_inv,_response=mag_*30))
     print("done")
     plt.hist(points, normed=True, bins=30) 
     plt.ylabel('magnitude value')
