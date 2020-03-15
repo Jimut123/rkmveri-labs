@@ -28,12 +28,12 @@ import cv2 # You must not use cv2.cornerHarris()
 """
 def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10):
     ### YOUR CODE HERE
+    print("Starting Harris Corners...")
     img1_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     img1_gray_blur = cv2.GaussianBlur(img1_gray,(5,5),0)
-    #img2_gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
     Ix_ = cv2.Sobel(img1_gray_blur,cv2.CV_8U,1,0,ksize=3)
     Iy_ = cv2.Sobel(img1_gray_blur,cv2.CV_8U,0,1,ksize=3)  
-    Ixy_ = Ix_*Iy_ #cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,1,ksize=3) 
+    Ixy_ = Ix_*Iy_ 
     Ix = cv2.GaussianBlur(Ix_,(5,5),cv2.BORDER_DEFAULT) 
     Ix2 = Ix * Ix
     Iy = cv2.GaussianBlur(Iy_,(5,5),cv2.BORDER_DEFAULT) 
@@ -42,44 +42,38 @@ def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10
     height = image.shape[0]
     width = image.shape[1]
     window_size = 5
-    corners = np.array([])
     image2 = image.copy()
-    color_img = image2#cv2.cvtColor(image2,cv2.COLOR_GRAY2RGB)
+    color_img = image2
     padding = int(window_size/2)
-    threshold = 10**8
-    alpha = 0.04
-    max = 0
-    total_r = 0
-    count_r = 0
-    wc = 0 # wild card
     Response_mat = np.full((height,width), 0,  dtype=np.float)
     for y in range(padding,height-padding):
-      for x in range(padding,width-padding):
-        windowIx2 = Ix2[y-padding:y+padding+1, x-padding:x+padding+1]
-        windowIxy = Ixy[y-padding:y+padding+1, x-padding:x+padding+1]
-        windowIy2 = Iy2[y-padding:y+padding+1, x-padding:x+padding+1]
-        Sx2 = windowIx2.sum()
-        Sxy = windowIxy.sum()
-        Sy2 = windowIy2.sum()
-        # response function
-        det = (Sx2 * Sy2) - (Sxy ** 2)
-        trace = Sx2 + Sy2
-        r = det - alpha*(trace**2)
-        if r>max:
-            max=r
-        total_r += r
-        count_r += 1
-        try:
-            Response_mat[x][y] = r
-        except:
-            wc +=1
-        #color if greater than threshold
-        if r>threshold:
-          corners.append([x,y,r])
-          color_img.itemset((y, x, 0), 0)
-          color_img.itemset((y, x, 1), 0)
-          color_img.itemset((y, x, 2), 255)
-    print("corners : ",corners)
+        for x in range(padding,width-padding):
+            windowIx2 = Ix2[y-padding:y+padding+1, x-padding:x+padding+1]
+            windowIxy = Ixy[y-padding:y+padding+1, x-padding:x+padding+1]
+            windowIy2 = Iy2[y-padding:y+padding+1, x-padding:x+padding+1]
+            Sx2 = windowIx2.sum()
+            Sxy = windowIxy.sum()
+            Sy2 = windowIy2.sum()
+            # response function
+            det = (Sx2 * Sy2) - (Sxy ** 2)
+            trace = Sx2 + Sy2
+            r = det - alpha*(trace**2)
+            if r>threshold:
+                Response_mat[y][x] = 255
+            else:
+                Response_mat[y][x] = 0
+    Backup_response = Response_mat.copy()  
+    corners = []
+    for y in range(int(nms_size/2),height-int(nms_size/2)):
+        for x in range(int(nms_size/2),width-int(nms_size/2)):
+            # perform NMS
+            if Response_mat[y][x]==255:
+                Response_mat[y-int(nms_size/2):y+int(nms_size/2),x-int(nms_size/2):x+int(nms_size/2)]=0
+                Response_mat[y][x]=255
+                corners.append([y,x])
+            x=x+10
+        y=y+10
+    
     return corners, Ix_, Iy_
 
 """
@@ -101,5 +95,8 @@ def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10
 """
 def get_keypoints(corners, Ix, Iy, threshold):
     ### YOUR CODE HERE 
-
+    keypoints = 'a'
+    for item in corners:
+      print(item[0],item[1])
+    print("?")
     return keypoints
