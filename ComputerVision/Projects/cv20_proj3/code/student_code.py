@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import cv2 # You must not use cv2.cornerHarris()
 import math
 # You must not add any other library
-
+# http://www.cse.psu.edu/~rtc12/CSE486/lecture06.pdf
 
 ### If you need additional helper methods, add those. 
 ### Write details description of those
@@ -27,111 +27,198 @@ import math
   - Iy: image derivative in Y direction
 
 """
-def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10):
+def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10,ver = 1):
     ### YOUR CODE HERE
-    print("Starting Harris Corners...")
-    img1_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    img1_gray_blur = cv2.GaussianBlur(img1_gray,(5,5),0)
-    #img2_gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-    Ix_ = cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,0,ksize=3)
-    Iy_ = cv2.Sobel(img1_gray_blur,cv2.CV_64F,0,1,ksize=3)  
-    Ixy_ = Ix_*Iy_ #cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,1,ksize=3) 
-    Ix = cv2.GaussianBlur(Ix_,(5,5),cv2.BORDER_DEFAULT) 
-    Ix2 = Ix * Ix
-    Iy = cv2.GaussianBlur(Iy_,(5,5),cv2.BORDER_DEFAULT) 
-    Iy2 = Iy * Iy
-    Ixy = cv2.GaussianBlur(Ixy_,(5,5),cv2.BORDER_DEFAULT) 
-
-    #img1_gray_blur
-    fig = plt.figure(figsize=(5, 5))
-    ax1 = fig.add_subplot(1,1,1)
-    ax1.imshow(img1_gray_blur,cmap='gray')
-    plt.title("img1_gray_blur")
-    plt.axis('off')
-
-    fig = plt.figure(figsize=(15, 15))
-    ax1 = fig.add_subplot(1,3,1)
-    ax1.imshow(Ix,cmap='gray')
-    plt.title("Ix")
-    plt.axis('off')
-    ax2 = fig.add_subplot(1,3,2)
-    ax2.imshow(Iy,cmap='gray')
-    plt.title("Iy")
-    plt.axis('off')
-    ax3 = fig.add_subplot(1,3,3)
-    ax3.imshow(Ixy,cmap='gray')
-    plt.title("Ixy")
-    plt.axis('off')
-
-    height = image.shape[0]
-    width = image.shape[1]
-    window_size = 5
-    corners = []
-    image2 = image.copy()
-    color_img = image2#cv2.cvtColor(image2,cv2.COLOR_GRAY2RGB)
-    padding = int(window_size/2)
-    threshold = 10**8
-    alpha = 0.04
-    max = 0
-    total_r = 0
-    count_r = 0
-    wc = 0 # wild card
-    Response_mat = np.full((height,width), 0,  dtype=np.float)
-    NMS_mat = np.full((height,width), 0,  dtype=np.float)
-    for y in range(padding,height-padding):
-        for x in range(padding,width-padding):
-            windowIx2 = Ix2[y-padding:y+padding+1, x-padding:x+padding+1]
-            windowIxy = Ixy[y-padding:y+padding+1, x-padding:x+padding+1]
-            windowIy2 = Iy2[y-padding:y+padding+1, x-padding:x+padding+1]
-            Sx2 = windowIx2.sum()
-            Sxy = windowIxy.sum()
-            Sy2 = windowIy2.sum()
-            # response function
-            det = (Sx2 * Sy2) - (Sxy ** 2)
-            trace = Sx2 + Sy2
-            r = det - alpha*(trace**2)
-            Response_mat[y][x] = r
-    brm = Response_mat.copy()
-    clipped_Response_mat = np.clip(brm, -255.0, 255.0)
-    fig = plt.figure(figsize=(5, 5))
-    ax1 = fig.add_subplot(1,1,1)
-    ax1.imshow(clipped_Response_mat)#,cmap='gray')
-    plt.title("Response matrix")
-    plt.axis('off')
-
-    #performing NMS
-    corners = []
-    nms_pad = int(nms_size/2)
-
-    for y in range(nms_pad,height-nms_pad):
-        for x in range(nms_pad,width-nms_pad):
-            # perform NMS
-            # https://stackoverflow.com/questions/56099302/how-to-zero-out-all-values-of-matrix-2d-array-except-top-n-values-using-numpy
-            nullified_arr = np.zeros_like(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad])
-            top_n = 1
-            top_n_idxs = np.argpartition(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad].reshape(-1), -top_n)[-top_n:]
-            if int(top_n_idxs[0]) == 0:
-              #print("c")
-              continue
-            #print("Top_n_idx : ",top_n_idxs)
-            nullified_arr.reshape(-1)[top_n_idxs] = Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad].reshape(-1)[top_n_idxs]
-            #print(nullified_arr)
-            Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad] = nullified_arr
-            #print(Response_mat)
-            x_val,y_val = np.where(Response_mat[y-nms_pad:y+nms_pad,
-                          x-nms_pad:x+nms_pad]==np.max(nullified_arr))
-            x=x+nms_size
-        y=y+nms_size
-    fig = plt.figure(figsize=(5, 5))
-    ax1 = fig.add_subplot(1,1,1)
-    ax1.imshow(Response_mat)#,cmap='gray')
-    plt.title("NMS matrix")
-    plt.axis('off')
-    corners = []
-    for y in range(0,width):
-        for x in range(0,height):
-            if Response_mat[x][y]>0:
-              corners.append([x,y])
+    if ver == 1:
+        print("Starting Harris Corners...")
+        img1_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        img1_gray_blur = cv2.GaussianBlur(img1_gray,(5,5),0)
+        #img2_gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        Ix_ = cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,0,ksize=3)
+        Iy_ = cv2.Sobel(img1_gray_blur,cv2.CV_64F,0,1,ksize=3)  
+        Ixy_ = Ix_*Iy_ #cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,1,ksize=3) 
+        Ix = cv2.GaussianBlur(Ix_,(5,5),cv2.BORDER_DEFAULT) 
+        Ix2 = Ix * Ix
+        Iy = cv2.GaussianBlur(Iy_,(5,5),cv2.BORDER_DEFAULT) 
+        Iy2 = Iy * Iy
+        Ixy = cv2.GaussianBlur(Ixy_,(5,5),cv2.BORDER_DEFAULT) 
+        #img1_gray_blur
+        fig = plt.figure(figsize=(5, 5))
+        ax1 = fig.add_subplot(1,1,1)
+        ax1.imshow(img1_gray_blur,cmap='gray')
+        plt.title("img1_gray_blur")
+        plt.axis('off')
+        fig = plt.figure(figsize=(15, 15))
+        ax1 = fig.add_subplot(1,3,1)
+        ax1.imshow(Ix,cmap='gray')
+        plt.title("Ix")
+        plt.axis('off')
+        ax2 = fig.add_subplot(1,3,2)
+        ax2.imshow(Iy,cmap='gray')
+        plt.title("Iy")
+        plt.axis('off')
+        ax3 = fig.add_subplot(1,3,3)
+        ax3.imshow(Ixy,cmap='gray')
+        plt.title("Ixy")
+        plt.axis('off')
+        height = image.shape[0]
+        width = image.shape[1]
+        window_size = 5
+        corners = []
+        image2 = image.copy()
+        color_img = image2#cv2.cvtColor(image2,cv2.COLOR_GRAY2RGB)
+        padding = int(window_size/2)
+        threshold = 10**8
+        alpha = 0.04
+        max = 0
+        total_r = 0
+        count_r = 0
+        Response_mat = np.full((height,width), 0,  dtype=np.float)
+        wc = 0 # wild card
+        for y in range(padding,height-padding):
+            for x in range(padding,width-padding):
+                windowIx2 = Ix2[y-padding:y+padding+1, x-padding:x+padding+1]
+                windowIxy = Ixy[y-padding:y+padding+1, x-padding:x+padding+1]
+                windowIy2 = Iy2[y-padding:y+padding+1, x-padding:x+padding+1]
+                Sx2 = windowIx2.sum()
+                Sxy = windowIxy.sum()
+                Sy2 = windowIy2.sum()
+                # response function
+                det = (Sx2 * Sy2) - (Sxy ** 2)
+                trace = Sx2 + Sy2
+                r = det - alpha*(trace**2)
+                #color if greater than threshold
+                if r>threshold:
+                    Response_mat[y][x] = 255
+                else:
+                    Response_mat[y][x] = 0
+        Backup_response = Response_mat.copy()
+        #img1_gray_blur
+        fig = plt.figure(figsize=(5, 5))
+        ax1 = fig.add_subplot(1,1,1)
+        ax1.imshow(Backup_response)#,cmap='gray')
+        plt.title("Response matrix")
+        plt.axis('off')
+        #performing NMS
+        corners = []
+        for y in range(5,height-5):
+            for x in range(5,width-5):
+                # perform NMS
+                if Response_mat[y][x]==255:
+                    Response_mat[y-5:y+5,x-5:x+5]=0
+                    Response_mat[y][x]=255
+                    corners.append([x,y])
+                x=x+10
+            y=y+10
+        #img1_gray_blur
+        fig = plt.figure(figsize=(5, 5))
+        ax1 = fig.add_subplot(1,1,1)
+        ax1.imshow(Response_mat)#,cmap='gray')
+        plt.title("NMS matrix")
+        plt.axis('off')
+        return corners, Ix, Iy
+    elif ver == 2:
+        print("Starting Harris Corners...")
+        img1_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        img1_gray_blur = cv2.GaussianBlur(img1_gray,(5,5),0)
+        #img2_gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        Ix_ = cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,0,ksize=3)
+        Iy_ = cv2.Sobel(img1_gray_blur,cv2.CV_64F,0,1,ksize=3)  
+        Ixy_ = Ix_*Iy_ #cv2.Sobel(img1_gray_blur,cv2.CV_64F,1,1,ksize=3) 
+        Ix = cv2.GaussianBlur(Ix_,(5,5),cv2.BORDER_DEFAULT) 
+        Ix2 = Ix * Ix
+        Iy = cv2.GaussianBlur(Iy_,(5,5),cv2.BORDER_DEFAULT) 
+        Iy2 = Iy * Iy
+        Ixy = cv2.GaussianBlur(Ixy_,(5,5),cv2.BORDER_DEFAULT) 
+        
+        #img1_gray_blur
+        fig = plt.figure(figsize=(5, 5))
+        ax1 = fig.add_subplot(1,1,1)
+        ax1.imshow(img1_gray_blur,cmap='gray')
+        plt.title("img1_gray_blur")
+        plt.axis('off')
+        
+        fig = plt.figure(figsize=(15, 15))
+        ax1 = fig.add_subplot(1,3,1)
+        ax1.imshow(Ix,cmap='gray')
+        plt.title("Ix")
+        plt.axis('off')
+        ax2 = fig.add_subplot(1,3,2)
+        ax2.imshow(Iy,cmap='gray')
+        plt.title("Iy")
+        plt.axis('off')
+        ax3 = fig.add_subplot(1,3,3)
+        ax3.imshow(Ixy,cmap='gray')
+        plt.title("Ixy")
+        plt.axis('off')
+        
+        height = image.shape[0]
+        width = image.shape[1]
+        window_size = 5
+        corners = []
+        image2 = image.copy()
+        color_img = image2#cv2.cvtColor(image2,cv2.COLOR_GRAY2RGB)
+        padding = int(window_size/2)
+        threshold = 10**8
+        alpha = 0.04
+        max = 0
+        total_r = 0
+        count_r = 0
+        wc = 0 # wild card
+        Response_mat = np.full((height,width), 0,  dtype=np.float)
+        NMS_mat = np.full((height,width), 0,  dtype=np.float)
+        for y in range(padding,height-padding):
+            for x in range(padding,width-padding):
+                windowIx2 = Ix2[y-padding:y+padding+1, x-padding:x+padding+1]
+                windowIxy = Ixy[y-padding:y+padding+1, x-padding:x+padding+1]
+                windowIy2 = Iy2[y-padding:y+padding+1, x-padding:x+padding+1]
+                Sx2 = windowIx2.sum()
+                Sxy = windowIxy.sum()
+                Sy2 = windowIy2.sum()
+                # response function
+                det = (Sx2 * Sy2) - (Sxy ** 2)
+                trace = Sx2 + Sy2
+                r = det - alpha*(trace**2)
+                Response_mat[y][x] = r
+        brm = Response_mat.copy()
+        clipped_Response_mat = np.clip(brm, -255.0, 255.0)
+        fig = plt.figure(figsize=(5, 5))
+        ax1 = fig.add_subplot(1,1,1)
+        ax1.imshow(clipped_Response_mat)#,cmap='gray')
+        plt.title("Response matrix")
+        plt.axis('off')
+        #performing NMS
+        corners = []
+        nms_pad = int(nms_size/2)
+        for y in range(nms_pad,height-nms_pad):
+            for x in range(nms_pad,width-nms_pad):
+                # perform NMS
+                # https://stackoverflow.com/questions/56099302/how-to-zero-out-all-values-of-matrix-2d-array-except-top-n-values-using-numpy
+                nullified_arr = np.zeros_like(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad])
+                top_n = 1
+                top_n_idxs = np.argpartition(Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad].reshape(-1), -top_n)[-top_n:]
+                if int(top_n_idxs[0]) == 0:
+                    #print("c")
+                    continue
+                #print("Top_n_idx : ",top_n_idxs)
+                nullified_arr.reshape(-1)[top_n_idxs] = Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad].reshape(-1)[top_n_idxs]
+                #print(nullified_arr)
+                Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad] = nullified_arr
+                #print(Response_mat)
+                x_val,y_val = np.where(Response_mat[y-nms_pad:y+nms_pad,
+                            x-nms_pad:x+nms_pad]==np.max(nullified_arr))
+                x=x+nms_size
+            y=y+nms_size
+        fig = plt.figure(figsize=(5, 5))
+        ax1 = fig.add_subplot(1,1,1)
+        ax1.imshow(Response_mat)#,cmap='gray')
+        plt.title("NMS matrix")
+        plt.axis('off')
+        corners = []
+        for y in range(0,width):
+            for x in range(0,height):
+                if Response_mat[x][y]>0:
+                    corners.append([x,y])
     return corners, Ix, Iy
 
 
@@ -157,7 +244,7 @@ def get_keypoints(corners, Ix, Iy, threshold):
     ### YOUR CODE HERE 
     keypoints = []
     points = []
-    for y,x in corners:
+    for x,y in corners:
         #print(item[0],item[1])
         gx = Ix[y,x]
         gy = Iy[y,x]
@@ -173,3 +260,4 @@ def get_keypoints(corners, Ix, Iy, threshold):
     plt.ylabel('magnitude value')
     #print(points)
     return keypoints
+
