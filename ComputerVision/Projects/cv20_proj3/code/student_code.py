@@ -101,15 +101,16 @@ def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10
         plt.axis('off')
         #performing NMS
         corners = []
-        for y in range(5,height-5):
-            for x in range(5,width-5):
+        nms_pad = int(nms_size/2)
+        for y in range(nms_pad,height-nms_pad):
+            for x in range(nms_pad,width-nms_pad):
                 # perform NMS
                 if Response_mat[y][x]==255:
-                    Response_mat[y-5:y+5,x-5:x+5]=0
+                    Response_mat[y-nms_pad:y+nms_pad,x-nms_pad:x+nms_pad]=0
                     Response_mat[y][x]=255
                     corners.append([x,y])
-                x=x+10
-            y=y+10
+                x=x+nms_size
+            y=y+nms_size
         #img1_gray_blur
         fig = plt.figure(figsize=(5, 5))
         ax1 = fig.add_subplot(1,1,1)
@@ -218,7 +219,7 @@ def harris_corners(image, window_size=5, alpha=0.04, threshold=1e-2, nms_size=10
         for y in range(0,width):
             for x in range(0,height):
                 if Response_mat[x][y]>0:
-                    corners.append([x,y])
+                    corners.append([y,x])
     return corners, Ix, Iy
 
 
@@ -254,7 +255,7 @@ def get_keypoints(corners, Ix, Iy, threshold):
         tan_inv = math.degrees(math.atan(gy/gx))
         points.append(mag_)
         if mag_> threshold:
-          keypoints.append(cv2.KeyPoint(x, y, _size=mag_,_angle=tan_inv,_response=mag_*30))
+          keypoints.append(cv2.KeyPoint(x, y, _size=int(mag_/4),_angle=tan_inv,_response=mag_*30))
     print("done")
     plt.hist(points, normed=True, bins=30) 
     plt.ylabel('magnitude value')
