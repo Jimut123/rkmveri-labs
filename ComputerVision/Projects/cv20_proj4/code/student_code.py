@@ -85,14 +85,11 @@ def calculate_camera_center(M):
     ###########################################################################
     # TODO: YOUR CAMERA CENTER CALCULATION CODE HERE
     ###########################################################################
-
     #raise NotImplementedError('`calculate_camera_center` function in ' +
     #    '`student_code.py` needs to be implemented')
-
     Q = M[:, :3]
     m4 = M[:, 3]
     cc = -np.linalg.inv(Q) @ m4
-    
     ###########################################################################
     # END OF YOUR CODE
     ###########################################################################
@@ -123,7 +120,6 @@ def estimate_fundamental_matrix(points_a, points_b):
     ###########################################################################
     # TODO: YOUR FUNDAMENTAL MATRIX ESTIMATION CODE HERE
     ###########################################################################
-
     #raise NotImplementedError('`estimate_fundamental_matrix` function in ' +
     #    '`student_code.py` needs to be implemented')
     num_points = points_a.shape[0]
@@ -140,17 +136,15 @@ def estimate_fundamental_matrix(points_a, points_b):
     # END OF YOUR CODE
     ###########################################################################
     return F
-
+    
 def ransac_fundamental_matrix(matches_a, matches_b):
     """
     Find the best fundamental matrix using RANSAC on potentially matching
     points. Your RANSAC loop should contain a call to
     estimate_fundamental_matrix() which you wrote in part 2.
-
     If you are trying to produce an uncluttered visualization of epipolar
     lines, you may want to return no more than 100 points for either left or
     right images.
-
     Args:
     -   matches_a: A numpy array of shape (N, 2) representing the coordinates
                    of possibly matching points from image A
@@ -158,7 +152,6 @@ def ransac_fundamental_matrix(matches_a, matches_b):
                    of possibly matching points from image B
     Each row is a correspondence (e.g. row 42 of matches_a is a point that
     corresponds to row 42 of matches_b)
-
     Returns:
     -   best_F: A numpy array of shape (3, 3) representing the best fundamental
                 matrix estimation
@@ -171,16 +164,46 @@ def ransac_fundamental_matrix(matches_a, matches_b):
     """
 
     # Placeholder values
-    best_F = estimate_fundamental_matrix(matches_a[:10, :], matches_b[:10, :])
-    inliers_a = matches_a[:100, :]
-    inliers_b = matches_b[:100, :]
+    #best_F = estimate_fundamental_matrix(matches_a[:10, :], matches_b[:10, :])
+    #inliers_a = matches_a[:100, :]
+    #inliers_b = matches_b[:100, :]
+
     ###########################################################################
-    # TODO: YOUR RANSAC CODE HERE
     ###########################################################################
+    N=15000
+    S=matches_b.shape[0]
+    r=np.random.randint(S,size=(N,8))
     
-    raise NotImplementedError('`ransac_fundamental_matrix` function in ' +
-        '`student_code.py` needs to be implemented')
+    m=np.ones((3,S))
+    m[0:2,:]=matches_a.T
+    mdash=np.ones((3,S))
+    mdash[0:2,:]=matches_b.T
+    count=np.zeros(N)
+    cost=np.zeros(S)
+    t=1e-2
+    for i in range(N):
+    	cost1=np.zeros(8)
+    	F=estimate_fundamental_matrix(matches_a[r[i,:],:],matches_b[r[i,:],:])
+    	for j in range(S):
+    		cost[j]=np.dot(np.dot(mdash[:,j].T,F),m[:,j])
+    	inlie=np.absolute(cost)<t
+    	count[i]=np.sum(inlie + np.zeros(S),axis=None)
+    	
+
+    index=np.argsort(-count)
+    best=index[0]
+    best_F=estimate_fundamental_matrix(matches_a[r[best,:],:],matches_b[r[best,:],:])
+    for j in range(S):
+    	cost[j]=np.dot(np.dot(mdash[:,j].T,best_F),m[:,j])
+    confidence=np.absolute(cost)
+    index=np.argsort(confidence)
+    matches_b=matches_b[index]
+    matches_a=matches_a[index]
+
+    inliers_a=matches_a[:100,:]
+    inliers_b=matches_b[:100,:]
+
     ###########################################################################
-    # END OF YOUR CODE
     ###########################################################################
+
     return best_F, inliers_a, inliers_b
