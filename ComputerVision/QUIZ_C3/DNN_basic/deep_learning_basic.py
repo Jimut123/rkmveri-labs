@@ -5,7 +5,7 @@ import cv2 as cv
 with open('synset_words.txt') as f:
     classes = [x[x.find(' ') + 1:] for x in f]
 
-image = cv.imread('mango.jpg')
+image = cv.imread('strawberry.jpg')
 # create tensor with 224x224 spatial size and subtract mean values (104, 117, 123) 
 # from corresponding channels (R, G, B)
 input = cv.dnn.blobFromImage(image, 1, (224, 224), (104, 117, 123))
