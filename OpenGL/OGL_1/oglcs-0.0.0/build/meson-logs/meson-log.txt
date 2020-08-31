@@ -1,0 +1,52 @@
+Build started at 2020-08-30T23:02:58.466204
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.45.1
+Source dir: /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0
+Build dir: /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build
+Build type: native build
+Project name: oglcs
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/meson-private/sanitycheckc.c -o /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/meson-private/sanitycheckc.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/meson-private/sanitycheckc.exe
+Native C compiler: cc (gcc 7.5.0 "cc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/meson-private/sanitycheckcpp.cc -o /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/meson-private/sanitycheckcpp.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/meson-private/sanitycheckcpp.exe
+Native C++ compiler: c++ (gcc 7.5.0 "c++ (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'glfw3' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency glfw3 found: YES 3.2.1
+Determining dependency 'glew' with pkg-config executable '/usr/bin/pkg-config'
+Native dependency glew found: YES 2.0.0
+Running compile:
+Working directory:  /tmp/tmp6_nwbzdu
+Command line:  c++ /tmp/tmp6_nwbzdu/testfile.cpp -O0 -fpermissive -Wl,--start-group -lm -Wl,--end-group -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmp6_nwbzdu/output.exe 
+
+Code:
+ int main(int argc, char **argv) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library m found: YES
+Adding test "cs0".
+Build targets in project: 1
+Found ninja-1.8.2 at /usr/bin/ninja

@@ -1,0 +1,13 @@
+Log of Meson test suite run on 2020-08-30T23:03:17.136400
+
+1/1 cs0                                     OK      13.11 s
+
+--- command ---
+/home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build/src/cs0-window/cs0-window
+-------
+
+
+OK:         1
+FAIL:       0
+SKIP:       0
+TIMEOUT:    0

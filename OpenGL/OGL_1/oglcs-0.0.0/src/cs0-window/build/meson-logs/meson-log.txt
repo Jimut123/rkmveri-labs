@@ -1,0 +1,10 @@
+Build started at 2020-08-30T22:57:54.195291
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.45.1
+Source dir: /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/src/cs0-window
+Build dir: /home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/src/cs0-window/build
+Build type: native build
+
+ERROR: First statement must be a call to project
