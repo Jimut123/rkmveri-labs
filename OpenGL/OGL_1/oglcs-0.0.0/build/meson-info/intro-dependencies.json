@@ -1,0 +1,1 @@
+[{"name": "glfw3", "version": "3.2.1", "compile_args": [], "link_args": ["/usr/lib/x86_64-linux-gnu/libglfw.so"]}, {"name": "glew", "version": "2.0.0", "compile_args": ["-I/usr/include/libdrm"], "link_args": ["/usr/lib/x86_64-linux-gnu/libGLEW.so", "/usr/lib/x86_64-linux-gnu/libGLU.so", "/usr/lib/x86_64-linux-gnu/libGL.so"]}]

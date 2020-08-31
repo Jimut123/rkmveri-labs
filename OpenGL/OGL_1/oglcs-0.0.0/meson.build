@@ -5,7 +5,7 @@ project('oglcs',
 	meson_version : '>= 0.44',
   	default_options : [
 		'buildtype=release', 
-		'c_std=none', 
+		'c_std=c11', 
 		'cpp_std=c++17', 
 		'warning_level=3', 
 		'werror=true',

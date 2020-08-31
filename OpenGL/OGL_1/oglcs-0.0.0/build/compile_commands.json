@@ -1,7 +1,8 @@
 [
   {
     "directory": "/home/jimutbp/Desktop/rkmveri-labs/OpenGL/OGL_1/oglcs-0.0.0/build",
-    "command": "c++  -Isrc/cs0-window/cs0-window@exe -Isrc/cs0-window -I../src/cs0-window -I/usr/include/libdrm -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -MD -MQ 'src/cs0-window/cs0-window@exe/cs0-window.cpp.o' -MF 'src/cs0-window/cs0-window@exe/cs0-window.cpp.o.d' -o 'src/cs0-window/cs0-window@exe/cs0-window.cpp.o' -c ../src/cs0-window/cs0-window.cpp",
-    "file": "../src/cs0-window/cs0-window.cpp"
+    "command": "c++ -Isrc/cs0-window/cs0-window.p -Isrc/cs0-window -I../src/cs0-window -I/usr/include/libdrm -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O3 -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -MD -MQ src/cs0-window/cs0-window.p/cs0-window.cpp.o -MF src/cs0-window/cs0-window.p/cs0-window.cpp.o.d -o src/cs0-window/cs0-window.p/cs0-window.cpp.o -c ../src/cs0-window/cs0-window.cpp",
+    "file": "../src/cs0-window/cs0-window.cpp",
+    "output": "src/cs0-window/cs0-window.p/cs0-window.cpp.o"
   }
 ]

@@ -1,0 +1,22 @@
+The vertices of an icosahedron with edge-length 2, centered at the origin, are described by all the cyclic permutations of:[2]
+
+    (0, ±1, ±ϕ) 
+
+The following Cartesian coordinates define the vertices of a regular dodecahedron centered at the origin and suitably scaled and oriented:[2]
+
+    (±1, ±1, ±1)
+    (0, ±1/ϕ, ±ϕ)
+    (±1/ϕ, ±ϕ, 0)
+    (±ϕ, 0, ±1/ϕ)
+
+where ϕ = 1 + √5/2 is the golden ratio (also written τ) ≈ 1.618. The edge length is 2/ϕ = √5 − 1. The containing sphere has a radius of √3.
+
+The following Cartesian coordinates define the four vertices of a tetrahedron with edge length 2, centered at the origin:
+
+    (\pm 1, 0, -\frac{1}{\sqrt{2}})
+    (0, \pm 1, \frac{1}{\sqrt{2}})
+
+Another set of coordinates are based on an alternated cube with edge length 2. The tetrahedron in this case has edge length 2√2. Inverting these coordinates generates the dual tetrahedron, and the pair together form the stellated octahedron, whose vertices are those of the original cube.
+
+    Tetrahedron: (1,1,1), (1,−1,−1), (−1,1,−1), (−1,−1,1)
+    Dual tetrahedron: (−1,−1,−1), (−1,1,1), (1,−1,1), (1,1,−1) 
