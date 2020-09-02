@@ -1,0 +1,34 @@
+# Ignore the build and lib dirs
+build
+
+# Ignore any executables
+bin/*
+lib/libcommon.a
+
+TAGS
+Makefile
+Makefile.in
+/aclocal.m4
+/autom4te.cache/
+/autoscan.log
+/config/*
+/config.log
+/config.h.in
+/config.h
+/config.status
+/configure
+/depcomp
+/install-sh
+/libtool
+/ltmain.sh
+/m4/
+/missing
+/stamp-h?
+.deps/
+.dirstamp
+.libs/
+*.l[ao]
+*.o
+*.a
+*~
+
