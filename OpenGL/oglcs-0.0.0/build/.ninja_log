@@ -1,0 +1,5 @@
+# ninja log v5
+0	1199	1599023067537949203	src/cs0-window/cs0-window.p/cs0-window.cpp.o	dc53b99f1a8db8b3
+1200	1535	1599023067881954677	src/cs0-window/cs0-window	92e0d0b08f74b94a
+1	2208	1599023068549965304	src/cs1-triangles/cs1-triangles.p/cs1-triangles.cpp.o	5e74ea7e276ea28
+2209	2551	1599023068897970839	src/cs1-triangles/cs1-triangles	99fe01e80845ae75

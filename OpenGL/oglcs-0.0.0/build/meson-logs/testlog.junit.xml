@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites errors="0" failures="0" tests="2"><testsuite errors="0" failures="0" name="oglcs" skipped="0" tests="2"><testcase classname="cs0" name="cs0" /><testcase classname="cs1" name="cs1" /></testsuite></testsuites>
