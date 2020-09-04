@@ -1,6 +1,8 @@
 // Include standard headers
 #include <cstdlib>
 #include <iostream>
+#include <cmath>
+
 
 // Include GLEW
 // OpenGL Extension Wrangler
@@ -142,6 +144,50 @@ int main(void)
 
     // Bad code: position and color are different types
     
+    // count the total triangles to be needed
+    int total_count = 0;
+    for(float theta = 0; theta <= 360; theta+=5)
+    {
+        total_count += 1;
+    }
+
+    GLfloat vertices[total_count*6];
+    float result, x;
+    int counter = 0, radius = 0.5;
+    for(float theta = 0; theta <= 360; theta+=5)
+    {
+        x = theta*3.14159/180;
+        sin_x = sin(x);
+        cos_x = cos(x);
+        counter = radius*
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     GLfloat vertices[] = {
 
         // first square = extreme top left
@@ -218,7 +264,7 @@ int main(void)
         
     };
 
-
+    */
     // Add text to the screen
    
 
