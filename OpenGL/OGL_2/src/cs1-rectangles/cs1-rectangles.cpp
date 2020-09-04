@@ -137,32 +137,78 @@ int main(void)
     
     GLfloat vertices[] = {
 
-        // first triangle
+        // first square = extreme top left
 
-        -0.9f, -0.5f, 0.0f,  // left
-        0.5f, 0.2f, 0.0f,    // dark orange
-        -0.0f, -0.5f, 0.0f,  // right
-        0.5f, 0.2f, 0.0f,    // dark orange
-        -0.45f, 0.5f, 0.0f,  // top
-        1.0f, 0.4f, 0.0f,    // orange
+        -0.5f, 0.5f, 0.0f,   // top left
+        1.0f, 0.0f, 0.0f,    // dark red
+        -0.5f, 0.0f, 0.0f,   // extreme left
+        1.0f, 0.0f, 0.0f,    // dark red
+        0.0f, 0.5f, 0.0f,    // middle top
+        1.0f, 0.0f, 0.0f,    // dark red
+        
+        -0.5f, 0.0f, 0.0f,   // extreme left
+        1.0f, 0.0f, 0.0f,    // dark red
+        0.0f, 0.5f, 0.0f,    // middle top
+        1.0f, 0.0f, 0.0f,    // dark red
+        0.0f, 0.0f, 0.0f,    // middle 
+        1.0f, 0.0f, 0.0f,    // dark red
+        
 
-        // second triangle
 
-        0.0f, -0.5f, 0.0f,  // left
-        0.25f, 0.0f, 0.4f,  // dark purple
-        0.9f, -0.5f, 0.0f,  // right
-        0.25f, 0.0f, 0.4f,  // dark purple
-        0.45f, 0.5f, 0.0f,  // top
-        0.5f, 0.0f, 0.8f,   // purple
+        // second square = extreme top right
 
-        // third triangle
+        0.0f, 0.0f, 0.0f,    // middle
+        0.0f, 1.0f, 0.0f,    // dark green
+        0.0f, 0.5f, 0.0f,    // middle top
+        0.0f, 1.0f, 0.0f,    // dark green
+        0.5f, 0.0f, 0.0f,    // extreme left middle
+        0.0f, 1.0f, 0.0f,    // dark green
+        
+        0.0f, 0.5f, 0.0f,    // middle top
+        0.0f, 1.0f, 0.0f,    // dark green
+        0.5f, 0.5f, 0.0f,    // extreme right top
+        0.0f, 1.0f, 0.0f,    // dark green
+        0.5f, 0.0f, 0.0f,    // extreme right
+        0.0f, 1.0f, 0.0f,    // dark green
 
-        -0.45f, 0.5f, 0.0f,   // left
-        0.25f, 0.25f, 0.25f,  // dark gray
-        0.45f, 0.5f, 0.0f,    // right
-        0.25f, 0.25f, 0.25f,  // dark gray
+
+        // third square = extreme bottom right
+
+        
+        0.0f, 0.0f, 0.0f,   // middle
+        1.0f, 1.0f, 0.0f,    // dark yellow
+        0.5f, 0.0f, 0.0f,    // middle right
+        1.0f, 1.0f, 0.0f,    // dark yellow
         0.0f, -0.5f, 0.0f,    // bottom
-        0.4f, 0.4f, 0.4f,     // gray
+        1.0f, 1.0f, 0.0f,    // dark yellow
+        
+
+        0.5f, 0.0f, 0.0f,   // middle right
+        1.0f, 1.0f, 0.0f,    // dark yellow
+        0.5f, -0.5f, 0.0f,    // bottom right
+        1.0f, 1.0f, 0.0f,    // dark yellow
+        0.0f, -0.5f, 0.0f,    // bottom middle
+        1.0f, 1.0f, 0.0f,    // dark yellow
+
+
+
+        // fourth square
+        
+        0.0f, 0.0f, 0.0f,    // middle
+        0.0f, 0.0f, 1.0f,    // dark blue
+        -0.5f, 0.0f, 0.0f,    // middle left
+        0.0f, 0.0f, 1.0f,    // dark blue
+        0.0f, -0.5f, 0.0f,    // middle bottom
+        0.0f, 0.0f, 1.0f,    // dark blue
+        
+        -0.5f, 0.0f, 0.0f,    // middle left
+        0.0f, 0.0f, 1.0f,    // dark blue
+        -0.5f, -0.5f, 0.0f,    // extreme left bottom
+        0.0f, 0.0f, 1.0f,    // dark blue
+        0.0f, -0.5f, 0.0f,    // extreme bottom
+        0.0f, 0.0f, 1.0f,    // dark blue
+
+        
     };
 
     GLuint VBO[1], VAO[1];
@@ -199,8 +245,8 @@ int main(void)
     // uncomment this call to draw in wireframe polygons.
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    // sap green background
-    glClearColor(0.169f, 0.267f, 0.09f, 0.0f);
+    // white background
+    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
     // render loop
     while (!glfwWindowShouldClose(window)) {
@@ -219,7 +265,7 @@ int main(void)
         // set the count to 6 since we're drawing 9 vertices now (3 triangles);
         // not 3!
 
-        glDrawArrays(GL_TRIANGLES, 0, 9);
+        glDrawArrays(GL_TRIANGLES, 0, 24);
         // no need to unbind it every time
 
         // glBindVertexArray(0);
