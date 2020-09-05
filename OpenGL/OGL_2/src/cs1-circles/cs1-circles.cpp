@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
+#include <random>
+#include <chrono>
 
 
 // Include GLEW
@@ -21,6 +23,8 @@ GLFWwindow *window;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void process_input(GLFWwindow *window);
+GLfloat rng_float(void);
+
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -146,46 +150,58 @@ int main(void)
     
     // count the total triangles to be needed
     int total_count = 0;
+
     for(float theta = 0; theta <= 360; theta+=5)
     {
         total_count += 1;
     }
 
-    GLfloat vertices[total_count*6];
-    float result, x;
-    int counter = 0, radius = 0.5;
-    for(float theta = 0; theta <= 360; theta+=5)
+    GLfloat vertices[74*18];
+    float x, x_coord, y_coord, sin_x, cos_x,radius = 0.5f;
+    int counter = 0; 
+    
+   
+    for(int theta = 0; theta <= 360; theta+=5)
     {
         x = theta*3.14159/180;
         sin_x = sin(x);
         cos_x = cos(x);
-        counter = radius*
+        x_coord = radius * cos_x;
+        y_coord = radius * sin_x;
+        
+        // (0,0)
+        
+
+        vertices[counter] = x_coord;
+        vertices[counter+1] = y_coord;
+        vertices[counter+2] = 0.0f;
+        vertices[counter+3] = rng_float();
+        vertices[counter+4] = rng_float();
+        vertices[counter+5] = rng_float();
+
+        vertices[counter+6] = 0.0f;
+        vertices[counter+7] = 0.0f;
+        vertices[counter+8] = 0.0f;
+        vertices[counter+9] = rng_float();
+        vertices[counter+10] = rng_float();
+        vertices[counter+11] = rng_float();
+
+        if(theta == 5)
+        {
+            // copy the previous value to the next triangle
+            vertices[counter-12] = 0.0f;
+            vertices[counter-11] = 0.0f;
+            vertices[counter-10] = 0.0f;
+            vertices[counter-9] = rng_float();
+            vertices[counter-8] = rng_float();
+            vertices[counter-7] = rng_float();
+            counter += 6;
+        }
+
+
+        counter += 12;
+        
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
     GLfloat vertices[] = {
@@ -265,13 +281,6 @@ int main(void)
     };
 
     */
-    // Add text to the screen
-   
-
-
-
-    // ************************************
-
 
     GLuint VBO[1], VAO[1];
 
@@ -327,7 +336,7 @@ int main(void)
         // set the count to 6 since we're drawing 9 vertices now (3 triangles);
         // not 3!
 
-        glDrawArrays(GL_TRIANGLES, 0, 24);
+        glDrawArrays(GL_TRIANGLES, 0, 74*18);
         // no need to unbind it every time
 
         // glBindVertexArray(0);
@@ -366,6 +375,14 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+static std::random_device rd;
+static std::mt19937 gen(rd());
+
+GLfloat rng_float(void)
+{
+  std::uniform_real_distribution<GLfloat> dis(0.0f,1.0f);
+  return dis(gen);
+}
 
 
 
