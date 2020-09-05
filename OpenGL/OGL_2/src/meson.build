@@ -1,5 +1,5 @@
 subdir('cs0-window')
 subdir('cs1-triangles')
 subdir('cs1-rectangles')
-subdir('cs1-circles')
+subdir('cs1-popsicle')
 subdir('cs2-moving')

@@ -149,6 +149,7 @@ int main(void)
     // Bad code: position and color are different types
     
     // count the total triangles to be needed
+
     int total_count = 0;
 
     for(float theta = 0; theta <= 360; theta+=5)
@@ -156,7 +157,7 @@ int main(void)
         total_count += 1;
     }
 
-    GLfloat vertices[74*18];
+    GLfloat vertices[74*18+6*3];
     float x, x_coord, y_coord, sin_x, cos_x,radius = 0.5f;
     int counter = 0; 
     
@@ -169,7 +170,7 @@ int main(void)
         x_coord = radius * cos_x;
         y_coord = radius * sin_x;
         
-        // (0,0)
+        // (0,0) coordinate
         
 
         vertices[counter] = x_coord;
@@ -189,98 +190,39 @@ int main(void)
         if(theta == 5)
         {
             // copy the previous value to the next triangle
-            vertices[counter-12] = 0.0f;
-            vertices[counter-11] = 0.0f;
-            vertices[counter-10] = 0.0f;
-            vertices[counter-9] = rng_float();
-            vertices[counter-8] = rng_float();
-            vertices[counter-7] = rng_float();
+            vertices[counter+12] = vertices[counter-12];
+            vertices[counter+13] = vertices[counter-11];
+            vertices[counter+14] = vertices[counter-10];
+            vertices[counter+15] = rng_float();
+            vertices[counter+16] = rng_float();
+            vertices[counter+17] = rng_float();
             counter += 6;
         }
-
-
         counter += 12;
-        
     }
 
-    /*
-    GLfloat vertices[] = {
+    // create the stick for the popscicle 
 
-        // first square = extreme top left
+    vertices[counter+1] = -0.2f;
+    vertices[counter+2] = -1.0f;
+    vertices[counter+3] = 0.0f;
+    vertices[counter+4] = 1.0f;
+    vertices[counter+5] = 0.0f;
+    vertices[counter+6] = 0.0f;
 
-        -0.5f, 0.5f, 0.0f,   // top left
-        1.0f, 0.0f, 0.0f,    // dark red
-        -0.5f, 0.0f, 0.0f,   // extreme left
-        1.0f, 0.0f, 0.0f,    // dark red
-        0.0f, 0.5f, 0.0f,    // middle top
-        1.0f, 0.0f, 0.0f,    // dark red
-        
-        -0.5f, 0.0f, 0.0f,   // extreme left
-        1.0f, 0.0f, 0.0f,    // dark red
-        0.0f, 0.5f, 0.0f,    // middle top
-        1.0f, 0.0f, 0.0f,    // dark red
-        0.0f, 0.0f, 0.0f,    // middle 
-        1.0f, 0.0f, 0.0f,    // dark red
-        
-
-
-        // second square = extreme top right
-
-        0.0f, 0.0f, 0.0f,    // middle
-        0.0f, 1.0f, 0.0f,    // dark green
-        0.0f, 0.5f, 0.0f,    // middle top
-        0.0f, 1.0f, 0.0f,    // dark green
-        0.5f, 0.0f, 0.0f,    // extreme left middle
-        0.0f, 1.0f, 0.0f,    // dark green
-        
-        0.0f, 0.5f, 0.0f,    // middle top
-        0.0f, 1.0f, 0.0f,    // dark green
-        0.5f, 0.5f, 0.0f,    // extreme right top
-        0.0f, 1.0f, 0.0f,    // dark green
-        0.5f, 0.0f, 0.0f,    // extreme right
-        0.0f, 1.0f, 0.0f,    // dark green
-
-
-        // third square = extreme bottom right
-
-        
-        0.0f, 0.0f, 0.0f,   // middle
-        1.0f, 1.0f, 0.0f,    // dark yellow
-        0.5f, 0.0f, 0.0f,    // middle right
-        1.0f, 1.0f, 0.0f,    // dark yellow
-        0.0f, -0.5f, 0.0f,    // bottom
-        1.0f, 1.0f, 0.0f,    // dark yellow
-        
-
-        0.5f, 0.0f, 0.0f,   // middle right
-        1.0f, 1.0f, 0.0f,    // dark yellow
-        0.5f, -0.5f, 0.0f,    // bottom right
-        1.0f, 1.0f, 0.0f,    // dark yellow
-        0.0f, -0.5f, 0.0f,    // bottom middle
-        1.0f, 1.0f, 0.0f,    // dark yellow
-
-
-
-        // fourth square
-        
-        0.0f, 0.0f, 0.0f,    // middle
-        0.0f, 0.0f, 1.0f,    // dark blue
-        -0.5f, 0.0f, 0.0f,    // middle left
-        0.0f, 0.0f, 1.0f,    // dark blue
-        0.0f, -0.5f, 0.0f,    // middle bottom
-        0.0f, 0.0f, 1.0f,    // dark blue
-        
-        -0.5f, 0.0f, 0.0f,    // middle left
-        0.0f, 0.0f, 1.0f,    // dark blue
-        -0.5f, -0.5f, 0.0f,    // extreme left bottom
-        0.0f, 0.0f, 1.0f,    // dark blue
-        0.0f, -0.5f, 0.0f,    // extreme bottom
-        0.0f, 0.0f, 1.0f,    // dark blue
-
-        
-    };
-
-    */
+    vertices[counter+7] = 0.2f;
+    vertices[counter+8] = -1.0f;
+    vertices[counter+9] = 0.0f;
+    vertices[counter+10] = 1.0f;
+    vertices[counter+11] = 0.0f;
+    vertices[counter+12] = 0.0f;
+    
+    vertices[counter+7] = -0.2f;
+    vertices[counter+8] = 0.5f;
+    vertices[counter+9] = 0.0f;
+    vertices[counter+10] = 1.0f;
+    vertices[counter+11] = 0.0f;
+    vertices[counter+12] = 0.0f;
 
     GLuint VBO[1], VAO[1];
 
@@ -336,7 +278,7 @@ int main(void)
         // set the count to 6 since we're drawing 9 vertices now (3 triangles);
         // not 3!
 
-        glDrawArrays(GL_TRIANGLES, 0, 74*18);
+        glDrawArrays(GL_TRIANGLES, 0, 74*18+6*3);
         // no need to unbind it every time
 
         // glBindVertexArray(0);
