@@ -1,0 +1,26 @@
+
+---------- Forwarded message ---------
+From: Dripta Mj <dripta.rkm@gmail.com>
+Date: Thu, Oct 8, 2020 at 10:07 AM
+Subject: [ML-2] Assignment 1: Autoencoders
+To: Jimut Bahan Pal <jimutbahanpal@gmail.com>, Ayan Gangopadhyay <ayangofficial@gmail.com>, Sayan <sayang1998a@gmail.com>, Subhasish Roy <itssubhasishroy@gmail.com>, Subhrangshu Bit <subhrangshubit@gmail.com>
+
+
+Dear All,
+
+Take the TensorFlow (basic) implementation of Autoencoders on the Fashion MNIST dataset. (see attached file). Try to improve the performance (measured on the validation dataset) of the model by the following approaches:
+a) Varying the number of layers and units in the layers
+b) Employing regularization
+c) Corrupting the inputs with some noise
+
+Deadline: October 17, 2020
+Submissions are to be made by replying to this email with files as attachments or as a GoogleDrive link. 
+
+Best wishes,
+Dripta Mj
+
+Hint:
+b) from tensorflow.keras import regularizers
+layers.Dense(50, activation='relu', activity_regularizer=regularizers.l1(10e-5)) 
+
+

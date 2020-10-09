@@ -1,9 +1,17 @@
-#include <iostream>
+// Include standard headers
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
+#include <random>
+#include <chrono>
 
 
+// Include GLEW
+// OpenGL Extension Wrangler
+#include <GL/glew.h>
+
+// Include GLFW
+#include <GLFW/glfw3.h>
 
 
 int main()
@@ -53,9 +61,16 @@ int main()
     vertices_gen[i1 + 1] = 0;
     vertices_gen[i1 + 2] = -radius;
 
+    struct Buf_data {
+        GLfloat vert[3];
+        GLfloat col[3];
+    };
+
+    Buf_data vertex[12];
     const int len = sizeof(vertices_gen)/sizeof(vertices_gen[0]);
     float vertices[len * 2];      // get the vertices and colors
     int counter = 0;
+    int n_counter = 0;
     for(int i = 0; i < len; i+=3 )
     {
         vertices[counter] = vertices_gen[i];
@@ -67,9 +82,12 @@ int main()
         vertices[counter+5] = 1.0f;
 
         counter += 6;
-
-        //std::cout<<" x1  = "<<vertices_gen[i]<<" x2 = "<<vertices_gen[i+1]<<" x3 = "<<vertices_gen[i+3]<<std::endl;
-        std::cout<<"("<<vertices_gen[i]<<","<<vertices_gen[i+1]<<","<<vertices_gen[i+3]<<")"<<std::endl;
+        vertex[n_counter].vert[0] = vertices_gen[i];
+        vertex[n_counter].vert[1] = vertices_gen[i+1];
+        vertex[n_counter].vert[2] = vertices_gen[i+2];
+        
+        //std::cout<<" x1  = "<<vertex[n_counter].vert[0]<<" x2 = "<<vertex[n_counter].vert[1]<<" x3 = "<<vertex[n_counter].vert[2]<<std::endl;
+        //std::cout<<"("<<vertices_gen[i]<<","<<vertices_gen[i+1]<<","<<vertices_gen[i+2]<<")"<<std::endl;
+        n_counter ++;
     }
-
 }
